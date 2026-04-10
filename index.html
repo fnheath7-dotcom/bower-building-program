@@ -250,6 +250,84 @@ h2 {
   </div>
 
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Powerbuilding Program</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: white;
+      padding: 20px;
+    }
 
+    button {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .phase {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Heath’s Powerbuilding Program</h1>
+
+<!-- NAV BUTTONS -->
+<button onclick="showPhase('p1')">Phase 1</button>
+<button onclick="showPhase('p2')">Phase 2</button>
+<button onclick="showPhase('p3')">Phase 3</button>
+<button onclick="showPhase('p4')">Phase 4</button>
+
+<!-- PHASE 1 -->
+<div id="p1" class="phase active">
+  <h2>Phase 1 – Cut (Weeks 1–5)</h2>
+  <p>Calories: 2300–2500</p>
+  <p>Protein: 215g</p>
+
+  <h3>Day 1 – Upper Strength</h3>
+  <p>Barbell Bench Press...</p>
+</div>
+
+<!-- PHASE 2 -->
+<div id="p2" class="phase">
+  <h2>Phase 2 – Bulk (Weeks 6–17)</h2>
+  <p>Calories: 2500–2700</p>
+</div>
+
+<!-- PHASE 3 -->
+<div id="p3" class="phase">
+  <h2>Phase 3 – Maintenance</h2>
+</div>
+
+<!-- PHASE 4 -->
+<div id="p4" class="phase">
+  <h2>Phase 4 – Max Gains</h2>
+</div>
+
+<script>
+function showPhase(id) {
+  let phases = document.querySelectorAll('.phase');
+  phases.forEach(p => p.classList.remove('active'));
+
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
 </body>
 </html>
