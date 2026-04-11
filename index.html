@@ -6,7 +6,6 @@
 <title>6-Week Strength Program</title>
 
 <style>
-/* ====== BACKGROUND ====== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -15,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* side gym decorations */
+/* side gym visuals */
 body::before,
 body::after {
     content: "";
@@ -41,7 +40,6 @@ body::after {
     background-image: url("https://img.icons8.com/ios-filled/500/dumbbell.png");
 }
 
-/* ===== HEADER ===== */
 header {
     text-align: center;
     padding: 30px 10px;
@@ -52,7 +50,6 @@ header {
     text-shadow: 0 0 20px black, 0 0 10px red;
 }
 
-/* ===== TABS ===== */
 .tabs {
     display: flex;
     flex-wrap: wrap;
@@ -63,14 +60,13 @@ header {
 }
 
 .tab {
-    padding: 14px 20px;
+    padding: 14px 18px;
     cursor: pointer;
     background: transparent;
     border: none;
     color: #e2e8f0;
     font-weight: 800;
     font-size: 15px;
-    transition: 0.2s;
 }
 
 .tab:hover {
@@ -84,25 +80,21 @@ header {
     border-bottom: 3px solid red;
 }
 
-/* ===== CONTENT ===== */
 .content {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
 }
 
-/* ===== WEEK SECTIONS ===== */
 .week {
     display: none;
-    animation: fade 0.3s ease-in-out;
 }
 
 .week.active {
     display: block;
 }
 
-/* ===== WORKOUT BOX ===== */
-.day, .note {
+.day {
     background: rgba(15, 15, 15, 0.75);
     border: 1px solid rgba(255, 0, 0, 0.25);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
@@ -114,36 +106,15 @@ header {
     line-height: 1.6;
 }
 
-/* headings */
 h3 {
     margin-top: 0;
     font-size: 20px;
     color: #ff3b3b;
-    text-shadow: 0 0 10px black;
 }
 
-/* big week summary box */
-.note {
-    border-left: 5px solid #ff2b2b;
-    white-space: pre-line;
-    font-weight: 600;
-}
-
-/* animation */
-@keyframes fade {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* mobile fix */
 @media (max-width: 700px) {
-    body::before, body::after {
-        display: none;
-    }
-
-    header {
-        font-size: 24px;
-    }
+    body::before, body::after { display: none; }
+    header { font-size: 24px; }
 }
 </style>
 </head>
@@ -205,33 +176,48 @@ Hammer curl: 3x12<br>
 Triceps ext: 3x12
 </div>
 
-<div class="note">
-🔥 WEEK 1 TOTAL SETS
-
-Chest: 21–22
-Back: 10
-Shoulders: 9
-Triceps: 18–19
-Biceps: 6
-Quads: 14
-Hamstrings/Glutes: 12–13
-</div>
-
 </div>
 
 <!-- WEEK 2 -->
 <div id="week2" class="week">
 
-<div class="note">
-🔥 WEEK 2 PROGRESSION
+<div class="day"><h3>MONDAY – BENCH HEAVY</h3>
+Bench: 5x3 @ RPE 7.5<br>
+Incline DB: 3–4x10–12<br>
+Cable Fly: 3x12–15<br>
+Triceps Pushdown: 3–4x12–15
+</div>
 
-+2.5–5 lb compounds
-Bench: 5x3 @ RPE 7.5
-Squat: 5x5 → 4x5 @ RPE 7.5
-Deadlift: 3x3 @ 72–75%
-Accessories unchanged
+<div class="day"><h3>TUESDAY – SQUAT</h3>
+Squat: 5x5 → 4x5 @ RPE 7.5<br>
+Hack Squat: 3x10<br>
+Leg Press: 3x12<br>
+Leg Extension: 3x15
+</div>
 
-TOTAL SETS SAME AS WEEK 1
+<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
+Lat Pulldown: 4x10–12<br>
+Chest-supported row: 3x10<br>
+Cable row: 3x12<br>
+Lateral raise: 3x15<br>
+Rear delt fly: 3x15<br>
+Face pull: 3x15
+</div>
+
+<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
+Deadlift: 3x3 @ 72–75%<br>
+RDL: 3x8<br>
+Ham curl: 3–4x12<br>
+Glute bridge: 3x10
+</div>
+
+<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
+Bench: 4x6 @ RPE 7.5<br>
+Incline DB: 3x10<br>
+Dips: 3x10<br>
+Curl: 3x12–15<br>
+Hammer curl: 3x12<br>
+Triceps ext: 3x12
 </div>
 
 </div>
@@ -239,22 +225,39 @@ TOTAL SETS SAME AS WEEK 1
 <!-- WEEK 3 -->
 <div id="week3" class="week">
 
-<div class="note">
-⚡ WEEK 3 – INTENSIFICATION
+<div class="day"><h3>MONDAY – BENCH</h3>
+Bench: 1x1 @ RPE 8<br>
+Bench: 3x3 @ 80%
+</div>
 
-Bench: 1x1 @ RPE 8 + 3x3 @ 80%
-Squat: 1x1 @ RPE 8 + 3x3 @ 80%
-Deadlift: 3x2 @ 75–80%
+<div class="day"><h3>TUESDAY – SQUAT</h3>
+Squat: 1x1 @ RPE 8<br>
+Squat: 3x3 @ 80%
+</div>
 
-Accessories: -1 set each
+<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
+Lat Pulldown: 3x10–12<br>
+Chest row: 2x10<br>
+Cable row: 2x12<br>
+Lateral raise: 2x15<br>
+Rear delt fly: 2x15<br>
+Face pull: 2x15
+</div>
 
-Chest: 10–11
-Back: 7
-Shoulders: 6
-Triceps: 10–11
-Biceps: 4
-Quads: 10
-Hamstrings/Glutes: 9–10
+<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
+Deadlift: 3x2 @ 75–80%<br>
+RDL: 2x8<br>
+Ham curl: 2–3x12<br>
+Glute bridge: 2x10
+</div>
+
+<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
+Bench: 3x6 @ RPE 7<br>
+Incline DB: 2x10<br>
+Dips: 2x10<br>
+Curl: 2x12–15<br>
+Hammer curl: 2x12<br>
+Triceps ext: 2x12
 </div>
 
 </div>
@@ -262,14 +265,27 @@ Hamstrings/Glutes: 9–10
 <!-- WEEK 4 -->
 <div id="week4" class="week">
 
-<div class="note">
-⚡ WEEK 4 – OVERLOAD
+<div class="day"><h3>MONDAY – BENCH</h3>
+Bench: 1x1 @ RPE 8.5<br>
+Bench: 3x2 @ 85%
+</div>
 
-Heavy singles + doubles
-70–80% accessory volume
-No failure sets
+<div class="day"><h3>TUESDAY – SQUAT</h3>
+Squat: 1x1 @ 8–8.5<br>
+Squat: 3x2 @ 82–85%
+</div>
 
-Same volume as Week 3
+<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
+Reduced volume (70–80%)<br>
+All movements same structure
+</div>
+
+<div class="day"><h3>THURSDAY – DEADLIFT</h3>
+Deadlift: 2–3x2 @ 80–83%
+</div>
+
+<div class="day"><h3>FRIDAY – ACCESSORIES</h3>
+Pump only, no failure sets
 </div>
 
 </div>
@@ -277,22 +293,26 @@ Same volume as Week 3
 <!-- WEEK 5 -->
 <div id="week5" class="week">
 
-<div class="note">
-🏆 WEEK 5 – PEAK WEEK
+<div class="day"><h3>MONDAY – BENCH PEAK</h3>
+Single @ 90–97%<br>
+Backoff: 2x2 @ 80%
+</div>
 
-Bench 90–97%
-Squat 88–95%
-Optional deadlift single
+<div class="day"><h3>TUESDAY – SQUAT PEAK</h3>
+Single @ 88–95%<br>
+Backoff: 2x2 @ 75–80%
+</div>
 
-Pump-only accessories
+<div class="day"><h3>WEDNESDAY – RECOVERY</h3>
+Pump work only (RPE 6–7)
+</div>
 
-Chest: 9–11
-Back: 5–10
-Shoulders: 4–9
-Triceps: 6–10
-Biceps: 0–3
-Quads: 3–6
-Hamstrings: 1–5
+<div class="day"><h3>THURSDAY – DEADLIFT (OPTIONAL)</h3>
+Single @ 85–92% if fresh
+</div>
+
+<div class="day"><h3>FRIDAY – SPEED BENCH</h3>
+6x2 @ 65–70%
 </div>
 
 </div>
@@ -300,21 +320,24 @@ Hamstrings: 1–5
 <!-- WEEK 6 -->
 <div id="week6" class="week">
 
-<div class="note">
-🧠 WEEK 6 – RESET
+<div class="day"><h3>MONDAY – RESET</h3>
+50–60% volume<br>RPE 6–7
+</div>
 
-50–60% volume
-RPE 6–7 max
-NO heavy singles
-NO failure
+<div class="day"><h3>TUESDAY – LIGHT SQUAT</h3>
+Technique only
+</div>
 
-Chest: 11–13
-Back: 5–6
-Shoulders: 4–5
-Triceps: 9–11
-Biceps: 3
-Quads: 7–8
-Hamstrings/Glutes: 6–8
+<div class="day"><h3>WEDNESDAY – LIGHT BACK</h3>
+Pump only
+</div>
+
+<div class="day"><h3>THURSDAY – LIGHT DEADLIFT</h3>
+Very light or skip
+</div>
+
+<div class="day"><h3>FRIDAY – RECOVERY</h3>
+Mobility + light pump
 </div>
 
 </div>
