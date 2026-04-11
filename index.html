@@ -6,111 +6,180 @@
 <title>PRO GYM RPG APP</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:radial-gradient(circle,#1a0000,#000);
-color:white;
-}
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: radial-gradient(circle at center, #1a0000, #000);
+        color: white;
+        line-height: 1.5;
+    }
 
-header{
-text-align:center;
-padding:15px;
-font-size:28px;
-font-weight:bold;
-color:#ff2b2b;
-}
+    header {
+        text-align: center;
+        padding: 20px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ff2b2b;
+        text-shadow: 0 0 10px #ff2b2b;
+        background: rgba(0,0,0,0.7);
+    }
 
-/* XP BAR */
-.xpBox{
-position:sticky;
-top:0;
-background:#000;
-padding:10px;
-border-bottom:1px solid red;
-z-index:10;
-}
+    /* XP BAR */
+    .xpBox {
+        position: sticky;
+        top: 0;
+        background: #000;
+        padding: 12px 15px;
+        border-bottom: 2px solid #ff2b2b;
+        z-index: 100;
+        font-size: 18px;
+    }
 
-.bar{
-width:100%;
-height:12px;
-background:#222;
-}
-.fill{
-height:100%;
-width:0%;
-background:red;
-transition:0.3s;
-}
+    .bar {
+        width: 100%;
+        height: 14px;
+        background: #222;
+        border-radius: 7px;
+        overflow: hidden;
+        margin-top: 8px;
+    }
 
-/* TABS */
-.tabs{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-background:#111;
-position:sticky;
-top:55px;
-}
+    .fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(to right, #ff2b2b, #ff6666);
+        transition: width 0.4s ease;
+    }
 
-.tab{
-padding:10px;
-border:none;
-background:none;
-color:white;
-cursor:pointer;
-}
+    /* TABS */
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #111;
+        position: sticky;
+        top: 68px;
+        z-index: 99;
+        gap: 2px;
+        padding: 8px 0;
+    }
 
-.tab.active{
-color:red;
-border-bottom:2px solid red;
-}
+    .tab {
+        padding: 12px 18px;
+        border: none;
+        background: #1a1a1a;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
 
-/* WEEK */
-.week{
-display:none;
-max-width:900px;
-margin:auto;
-padding:10px;
-}
+    .tab.active {
+        background: #ff2b2b;
+        color: white;
+        box-shadow: 0 0 10px #ff2b2b;
+    }
 
-.week.active{display:block;}
+    /* WEEK CONTAINER */
+    .week {
+        display: none;
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 15px;
+    }
 
-.day{
-background:#111;
-border-left:3px solid red;
-padding:10px;
-margin:10px 0;
-cursor:pointer;
-transition:0.2s;
-}
+    .week.active {
+        display: block;
+    }
 
-.day.done{
-opacity:0.5;
-text-decoration:line-through;
-}
+    /* DAY CARD */
+    .day {
+        background: #111;
+        border-left: 5px solid #ff2b2b;
+        padding: 18px;
+        margin: 15px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
 
-.quote{
-color:#ff7777;
-font-style:italic;
-margin:10px 0;
-}
+    .day:hover {
+        transform: translateX(8px);
+        background: #1a1a1a;
+    }
 
-/* PR BOX */
-.prBox{
-background:#111;
-padding:10px;
-margin:10px;
-border:1px solid red;
-}
-button{
-background:red;
-color:white;
-border:none;
-padding:8px;
-cursor:pointer;
-margin:5px;
-}
+    .day.done {
+        opacity: 0.6;
+        text-decoration: line-through;
+        border-left-color: #555;
+    }
+
+    .day-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #ff7777;
+    }
+
+    .exercise {
+        background: #1a0000;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 4px;
+        border: 1px solid #330000;
+    }
+
+    .exercise-name {
+        font-weight: bold;
+        color: #ff9999;
+        margin-bottom: 6px;
+    }
+
+    /* PR BOX */
+    .prBox {
+        background: #111;
+        padding: 20px;
+        margin: 15px auto;
+        max-width: 960px;
+        border: 2px solid #ff2b2b;
+        border-radius: 8px;
+    }
+
+    button {
+        background: #ff2b2b;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin: 8px 5px 8px 0;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #ff5555;
+        transform: scale(1.05);
+    }
+
+    .quote {
+        color: #ff9999;
+        font-style: italic;
+        text-align: center;
+        font-size: 18px;
+        margin: 20px 0;
+        padding: 15px;
+        background: rgba(255, 43, 43, 0.1);
+        border-left: 4px solid #ff2b2b;
+    }
+
+    h2 {
+        color: #ff2b2b;
+        text-align: center;
+        margin: 25px 0 15px;
+    }
 </style>
 </head>
 
@@ -119,141 +188,286 @@ margin:5px;
 <header>🔥 PRO GYM RPG APP</header>
 
 <div class="xpBox">
-LEVEL: <span id="lvl">1</span> |
-XP: <span id="xp">0</span>/100 |
-STREAK: <span id="streak">0</span>
-<div class="bar"><div class="fill" id="fill"></div></div>
+    <strong>LEVEL:</strong> <span id="lvl">1</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <strong>XP:</strong> <span id="xp">0</span>/100 &nbsp;&nbsp;|&nbsp;&nbsp;
+    <strong>STREAK:</strong> <span id="streak">0</span> 🔥
+    <div class="bar"><div class="fill" id="fill"></div></div>
 </div>
 
 <div class="prBox">
-<h3>PR Tracker</h3>
-<button onclick="setPR()">Set PRs</button>
-<div id="prDisplay"></div>
+    <h3>🏆 Personal Record Tracker</h3>
+    <button onclick="setPR()">SET NEW PRs</button>
+    <div id="prDisplay" style="margin-top:15px; font-size:17px;"></div>
 </div>
 
 <div class="tabs">
-<button class="tab active" onclick="show(1)">W1</button>
-<button class="tab" onclick="show(2)">W2</button>
-<button class="tab" onclick="show(3)">W3</button>
-<button class="tab" onclick="show(4)">W4</button>
-<button class="tab" onclick="show(5)">W5</button>
-<button class="tab" onclick="show(6)">W6</button>
+    <button class="tab active" onclick="show(1)">WEEK 1</button>
+    <button class="tab" onclick="show(2)">WEEK 2</button>
+    <button class="tab" onclick="show(3)">WEEK 3</button>
+    <button class="tab" onclick="show(4)">WEEK 4</button>
+    <button class="tab" onclick="show(5)">WEEK 5</button>
+    <button class="tab" onclick="show(6)">WEEK 6</button>
 </div>
 
 <!-- ================= WEEK 1 ================= -->
 <div id="w1" class="week active">
-<div class="quote">Discipline beats motivation.</div>
+    <div class="quote">“Discipline beats motivation every single day.”</div>
+    <h2>WEEK 1–2 • BASE BUILD / ACCUMULATION PHASE</h2>
 
-<div class="day" onclick="complete(this)">DAY 1 – Bench Heavy</div>
-<div class="day" onclick="complete(this)">DAY 2 – Squat</div>
-<div class="day" onclick="complete(this)">DAY 3 – Back</div>
-<div class="day" onclick="complete(this)">DAY 4 – Deadlift</div>
-<div class="day" onclick="complete(this)">DAY 5 – Arms</div>
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 1 – BENCH HEAVY</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>5×3 @ RPE 7</div>
+        <div class="exercise"><span class="exercise-name">Incline Dumbbell Press</span><br>3–4×10–12</div>
+        <div class="exercise"><span class="exercise-name">Cable Fly</span><br>3×12–15</div>
+        <div class="exercise"><span class="exercise-name">Triceps Pushdown</span><br>3–4×12–15</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 2 – SQUAT</div>
+        <div class="exercise"><span class="exercise-name">Squat</span><br>5×5 @ RPE 7</div>
+        <div class="exercise"><span class="exercise-name">Hack Squat</span><br>3×10</div>
+        <div class="exercise"><span class="exercise-name">Leg Press</span><br>3×12</div>
+        <div class="exercise"><span class="exercise-name">Leg Extension</span><br>3×15</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 3 – BACK + SHOULDERS</div>
+        <div class="exercise"><span class="exercise-name">Lat Pulldown</span><br>4×10–12</div>
+        <div class="exercise"><span class="exercise-name">Chest-Supported Row</span><br>3×10</div>
+        <div class="exercise"><span class="exercise-name">Cable Row</span><br>3×12</div>
+        <div class="exercise"><span class="exercise-name">Lateral Raise</span><br>3×15</div>
+        <div class="exercise"><span class="exercise-name">Rear Delt Fly</span><br>3×15</div>
+        <div class="exercise"><span class="exercise-name">Face Pull</span><br>3×15</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 4 – DEADLIFT + HAMSTRINGS</div>
+        <div class="exercise"><span class="exercise-name">Deadlift</span><br>3×3 @ 70–72%</div>
+        <div class="exercise"><span class="exercise-name">Romanian Deadlift (RDL)</span><br>3×8</div>
+        <div class="exercise"><span class="exercise-name">Hamstring Curl</span><br>3–4×12</div>
+        <div class="exercise"><span class="exercise-name">Glute Bridge</span><br>3×10</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 5 – BENCH VOLUME + ARMS</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>4×6 @ RPE 7</div>
+        <div class="exercise"><span class="exercise-name">Incline Dumbbell Press</span><br>3×10</div>
+        <div class="exercise"><span class="exercise-name">Dips</span><br>3×10</div>
+        <div class="exercise"><span class="exercise-name">Barbell or EZ Curl</span><br>3×12–15</div>
+        <div class="exercise"><span class="exercise-name">Hammer Curl</span><br>3×12</div>
+        <div class="exercise"><span class="exercise-name">Triceps Extension</span><br>3×12</div>
+    </div>
 </div>
 
-<div id="w2" class="week"><div class="day" onclick="complete(this)">Week 2 Progression</div></div>
-<div id="w3" class="week"><div class="day" onclick="complete(this)">Week 3 Intensity</div></div>
-<div id="w4" class="week"><div class="day" onclick="complete(this)">Week 4 Overload</div></div>
-<div id="w5" class="week"><div class="day" onclick="complete(this)">Week 5 Peak</div></div>
-<div id="w6" class="week"><div class="day" onclick="complete(this)">Week 6 Reset</div></div>
+<!-- ================= WEEK 2 ================= -->
+<div id="w2" class="week">
+    <div class="quote">Progress is earned, not given.</div>
+    <h2>WEEK 2 • PROGRESSION</h2>
+    <p style="text-align:center; color:#ff9999;">+2.5–5 lb on compounds where possible</p>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 1 – BENCH HEAVY (Progression)</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>5×3 @ RPE 7.5</div>
+        <div class="exercise"><span class="exercise-name">Incline DB Press</span><br>3–4×10–12</div>
+        <div class="exercise"><span class="exercise-name">Cable Fly</span><br>3×12–15</div>
+        <div class="exercise"><span class="exercise-name">Triceps Pushdown</span><br>3–4×12–15</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 2 – SQUAT (Progression)</div>
+        <div class="exercise"><span class="exercise-name">Squat</span><br>4×5 @ RPE 7.5</div>
+        <div class="exercise"><span class="exercise-name">Hack Squat</span><br>3×10</div>
+        <div class="exercise"><span class="exercise-name">Leg Press</span><br>3×12</div>
+        <div class="exercise"><span class="exercise-name">Leg Extension</span><br>3×15</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 4 – DEADLIFT (Progression)</div>
+        <div class="exercise"><span class="exercise-name">Deadlift</span><br>3×3 @ 72–75%</div>
+        <div class="exercise"><span class="exercise-name">RDL</span><br>3×8</div>
+        <div class="exercise"><span class="exercise-name">Ham Curl</span><br>3–4×12</div>
+        <div class="exercise"><span class="exercise-name">Glute Bridge</span><br>3×10</div>
+    </div>
+
+    <!-- You can duplicate other days if needed, but keeping focus on progression days -->
+</div>
+
+<!-- ================= WEEK 3 ================= -->
+<div id="w3" class="week">
+    <div class="quote">Intensity creates adaptation.</div>
+    <h2>WEEK 3 • INTENSIFICATION – TECHNICAL SINGLES</h2>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">BENCH DAY</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>1×1 @ RPE 8<br>then 3×3 @ 80%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">SQUAT DAY</div>
+        <div class="exercise"><span class="exercise-name">Squat</span><br>1×1 @ RPE 8<br>then 3×3 @ 80%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DEADLIFT DAY</div>
+        <div class="exercise"><span class="exercise-name">Deadlift</span><br>3×2 @ 75–80%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">BACK + SHOULDERS (Reduced Volume)</div>
+        <p style="margin:5px 0; color:#ff9999;">Reduce by 1 set per exercise • Keep pump</p>
+    </div>
+</div>
+
+<!-- ================= WEEK 4 ================= -->
+<div id="w4" class="week">
+    <div class="quote">Controlled overload builds champions.</div>
+    <h2>WEEK 4 • OVERLOAD PHASE</h2>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">BENCH DAY</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>1×1 @ RPE 8.5<br>then 3×2 @ 85%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">SQUAT DAY</div>
+        <div class="exercise"><span class="exercise-name">Squat</span><br>1×1 @ RPE 8–8.5<br>then 3×2 @ 82–85%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DEADLIFT DAY</div>
+        <div class="exercise"><span class="exercise-name">Deadlift</span><br>2–3×2 @ 80–83%</div>
+    </div>
+</div>
+
+<!-- ================= WEEK 5 ================= -->
+<div id="w5" class="week">
+    <div class="quote">Peak week — show what you built.</div>
+    <h2>WEEK 5 • PEAK WEEK – PR EXPRESSION</h2>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 1 – BENCH PEAK</div>
+        <div class="exercise"><span class="exercise-name">Bench Press</span><br>Single @ 90–97%<br>Backoff: 2×2 @ 80%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 2 – SQUAT PEAK</div>
+        <div class="exercise"><span class="exercise-name">Squat</span><br>Single @ 88–95%<br>Backoff: 2×2 @ 75–80%</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 3 – RECOVERY BACK + SHOULDERS</div>
+        <div class="exercise"><span class="exercise-name">Pump Work Only</span><br>2–3 sets per movement • RPE 6–7 max</div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 4 – DEADLIFT (OPTIONAL)</div>
+        <div class="exercise"><span class="exercise-name">Deadlift Single</span><br>@ 85–92% ONLY if zero fatigue &amp; fast bar speed<br><strong>Otherwise skip</strong></div>
+    </div>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">DAY 5 – SPEED BENCH</div>
+        <div class="exercise"><span class="exercise-name">Speed Bench Press</span><br>6×2 @ 65–70%</div>
+    </div>
+</div>
+
+<!-- ================= WEEK 6 ================= -->
+<div id="w6" class="week">
+    <div class="quote">Recovery is where the real gains happen.</div>
+    <h2>WEEK 6 • POST-PEAK RESET &amp; RECOVERY</h2>
+    <p style="text-align:center; color:#ff9999;">50–60% of normal volume • RPE 6–7 max • No singles, no grinders, no failure</p>
+
+    <div class="day" onclick="complete(this)">
+        <div class="day-title">LIGHT TRAINING DAYS</div>
+        <p>Keep movements light and controlled. Focus on form, blood flow, and locking in gains.</p>
+    </div>
+</div>
 
 <script>
-
 let xp = 0;
 let lvl = 1;
 let streak = 0;
 let lastDay = null;
 
-/* ================= COMPLETE WORKOUT ================= */
-function complete(el){
+function complete(el) {
+    if (el.classList.contains("done")) return;
 
-if(el.classList.contains("done")) return;
+    el.classList.add("done");
+    xp += 25;   // Increased XP per day because workouts are now longer
 
-el.classList.add("done");
+    let today = new Date().toDateString();
+    if (lastDay !== today) {
+        streak++;
+        lastDay = today;
+    }
 
-xp += 20;
+    if (xp >= 100) {
+        xp = 0;
+        lvl++;
+        alert(`🎉 LEVEL UP! You are now Level ${lvl}!`);
+    }
 
-/* streak system */
-let today = new Date().toDateString();
-if(lastDay !== today){
-streak++;
-lastDay = today;
+    save();
+    update();
 }
 
-/* level up */
-if(xp >= 100){
-xp = 0;
-lvl++;
-alert("LEVEL UP!");
+function update() {
+    document.getElementById("xp").innerText = xp;
+    document.getElementById("lvl").innerText = lvl;
+    document.getElementById("streak").innerText = streak;
+    document.getElementById("fill").style.width = Math.min(xp, 100) + "%";
 }
 
-save();
-update();
+function show(n) {
+    document.querySelectorAll(".week").forEach(w => w.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+
+    document.getElementById("w" + n).classList.add("active");
+    document.querySelectorAll(".tab")[n-1].classList.add("active");
 }
 
-/* ================= UPDATE UI ================= */
-function update(){
-document.getElementById("xp").innerText = xp;
-document.getElementById("lvl").innerText = lvl;
-document.getElementById("streak").innerText = streak;
-document.getElementById("fill").style.width = xp + "%";
+function setPR() {
+    let b = prompt("Bench Press PR (kg or lbs)?");
+    let s = prompt("Squat PR (kg or lbs)?");
+    let d = prompt("Deadlift PR (kg or lbs)?");
+
+    if (b || s || d) {
+        let data = { bench: b || "-", squat: s || "-", deadlift: d || "-" };
+        localStorage.setItem("prs", JSON.stringify(data));
+        displayPR();
+    }
 }
 
-/* ================= TABS ================= */
-function show(n){
-let weeks = document.querySelectorAll(".week");
-let tabs = document.querySelectorAll(".tab");
+function displayPR() {
+    let data = JSON.parse(localStorage.getItem("prs") || "{}");
+    const display = document.getElementById("prDisplay");
+    
+    if (Object.keys(data).length === 0) {
+        display.innerHTML = "<em>No PRs saved yet. Click SET NEW PRs</em>";
+        return;
+    }
 
-weeks.forEach(w => w.classList.remove("active"));
-tabs.forEach(t => t.classList.remove("active"));
-
-document.getElementById("w"+n).classList.add("active");
-tabs[n-1].classList.add("active");
+    display.innerHTML = `
+        🏋️ Bench: <strong>${data.bench}</strong><br>
+        🏋️ Squat: <strong>${data.squat}</strong><br>
+        🏋️ Deadlift: <strong>${data.deadlift}</strong>
+    `;
 }
 
-/* ================= PR SYSTEM ================= */
-function setPR(){
-let b = prompt("Bench PR?");
-let s = prompt("Squat PR?");
-let d = prompt("Deadlift PR?");
-
-let data = {b,s,d};
-localStorage.setItem("prs", JSON.stringify(data));
-
-displayPR();
+function save() {
+    localStorage.setItem("gymApp", JSON.stringify({ xp, lvl, streak }));
 }
 
-function displayPR(){
-let data = JSON.parse(localStorage.getItem("prs"));
-if(!data) return;
-
-document.getElementById("prDisplay").innerHTML =
-"Bench: " + data.b + "<br>" +
-"Squat: " + data.s + "<br>" +
-"Deadlift: " + data.d;
-}
-
-/* ================= SAVE SYSTEM ================= */
-function save(){
-localStorage.setItem("gymApp", JSON.stringify({
-xp,lvl,streak
-}));
-}
-
-/* ================= LOAD ================= */
 window.onload = () => {
-let data = JSON.parse(localStorage.getItem("gymApp"));
+    const saved = JSON.parse(localStorage.getItem("gymApp"));
+    if (saved) {
+        xp = saved.xp || 0;
+        lvl = saved.lvl || 1;
+        streak = saved.streak || 0;
+    }
 
-if(data){
-xp = data.xp;
-lvl = data.lvl;
-streak = data.streak;
-}
-
-update();
-displayPR();
+    update();
+    displayPR();
 };
-
 </script>
 
 </body>
