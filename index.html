@@ -3,96 +3,162 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>6-Week Training Program</title>
+<title>6-Week Strength Program</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-    }
+/* ====== BACKGROUND ====== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f1f5f9;
+    background: radial-gradient(circle at top, #1a0000, #000000 60%);
+    overflow-x: hidden;
+}
 
-    header {
-        text-align: center;
-        padding: 20px;
-        background: #111827;
-        font-size: 22px;
-        font-weight: bold;
-    }
+/* side gym decorations */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px red);
+}
 
-    .tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        background: #1f2937;
-    }
+body::before {
+    left: 0;
+    background-image: url("https://img.icons8.com/ios-filled/500/barbell.png");
+}
 
-    .tab {
-        padding: 12px 16px;
-        cursor: pointer;
-        background: #1f2937;
-        border: none;
-        color: #e2e8f0;
-        font-weight: bold;
-    }
+body::after {
+    right: 0;
+    background-image: url("https://img.icons8.com/ios-filled/500/dumbbell.png");
+}
 
-    .tab:hover {
-        background: #334155;
-    }
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ff2b2b;
+    text-shadow: 0 0 20px black, 0 0 10px red;
+}
 
-    .tab.active {
-        background: #3b82f6;
-        color: white;
-    }
+/* ===== TABS ===== */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(20, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #ff2b2b;
+}
 
-    .content {
-        max-width: 900px;
-        margin: auto;
-        padding: 20px;
-    }
+.tab {
+    padding: 14px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #e2e8f0;
+    font-weight: 800;
+    font-size: 15px;
+    transition: 0.2s;
+}
 
-    .week {
+.tab:hover {
+    color: #ff2b2b;
+    transform: scale(1.05);
+}
+
+.tab.active {
+    color: #ff2b2b;
+    text-shadow: 0 0 10px red;
+    border-bottom: 3px solid red;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== WEEK SECTIONS ===== */
+.week {
+    display: none;
+    animation: fade 0.3s ease-in-out;
+}
+
+.week.active {
+    display: block;
+}
+
+/* ===== WORKOUT BOX ===== */
+.day, .note {
+    background: rgba(15, 15, 15, 0.75);
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* headings */
+h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #ff3b3b;
+    text-shadow: 0 0 10px black;
+}
+
+/* big week summary box */
+.note {
+    border-left: 5px solid #ff2b2b;
+    white-space: pre-line;
+    font-weight: 600;
+}
+
+/* animation */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* mobile fix */
+@media (max-width: 700px) {
+    body::before, body::after {
         display: none;
     }
 
-    .week.active {
-        display: block;
+    header {
+        font-size: 24px;
     }
-
-    .day, .block {
-        background: #111827;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 10px;
-    }
-
-    h3 {
-        margin-top: 0;
-        color: #60a5fa;
-    }
-
-    .note {
-        background: #1f2937;
-        padding: 12px;
-        border-left: 4px solid #3b82f6;
-        margin: 10px 0;
-        white-space: pre-line;
-    }
+}
 </style>
 </head>
 
 <body>
 
-<header>6-Week Strength Program</header>
+<header>6-WEEK STRENGTH PROGRAM</header>
 
 <div class="tabs">
-    <button class="tab active" onclick="showWeek(1)">Week 1</button>
-    <button class="tab" onclick="showWeek(2)">Week 2</button>
-    <button class="tab" onclick="showWeek(3)">Week 3</button>
-    <button class="tab" onclick="showWeek(4)">Week 4</button>
-    <button class="tab" onclick="showWeek(5)">Week 5</button>
-    <button class="tab" onclick="showWeek(6)">Week 6</button>
+    <button class="tab active" onclick="showWeek(1)">WEEK 1</button>
+    <button class="tab" onclick="showWeek(2)">WEEK 2</button>
+    <button class="tab" onclick="showWeek(3)">WEEK 3</button>
+    <button class="tab" onclick="showWeek(4)">WEEK 4</button>
+    <button class="tab" onclick="showWeek(5)">WEEK 5</button>
+    <button class="tab" onclick="showWeek(6)">WEEK 6</button>
 </div>
 
 <div class="content">
@@ -140,15 +206,15 @@ Triceps ext: 3x12
 </div>
 
 <div class="note">
-WEEK 1 – TOTAL SETS PER MUSCLE
+🔥 WEEK 1 TOTAL SETS
 
-Chest: 21–22 sets
-Back: 10 sets
-Shoulders: 9 sets
-Triceps: 18–19 sets
-Biceps: 6 sets
-Quads: 14 sets
-Hamstrings/Glutes: 12–13 sets
+Chest: 21–22
+Back: 10
+Shoulders: 9
+Triceps: 18–19
+Biceps: 6
+Quads: 14
+Hamstrings/Glutes: 12–13
 </div>
 
 </div>
@@ -156,24 +222,16 @@ Hamstrings/Glutes: 12–13 sets
 <!-- WEEK 2 -->
 <div id="week2" class="week">
 
-<div class="day"><h3>WEEK 2 – BASE BUILD (4-DAY SPLIT)</h3>
-Same structure as Week 1 with:
-- Bench: 5x3 @ RPE 7.5
-- Squat: 5x5 → 4x5 @ RPE 7.5
-- Deadlift: 3x3 @ 72–75%
-- +2.5–5 lb compounds
-</div>
-
 <div class="note">
-WEEK 2 – TOTAL SETS PER MUSCLE (SAME AS WEEK 1)
+🔥 WEEK 2 PROGRESSION
 
-Chest: 21–22 sets
-Back: 10 sets
-Shoulders: 9 sets
-Triceps: 18–19 sets
-Biceps: 6 sets
-Quads: 14 sets
-Hamstrings/Glutes: 12–13 sets
++2.5–5 lb compounds
+Bench: 5x3 @ RPE 7.5
+Squat: 5x5 → 4x5 @ RPE 7.5
+Deadlift: 3x3 @ 72–75%
+Accessories unchanged
+
+TOTAL SETS SAME AS WEEK 1
 </div>
 
 </div>
@@ -182,15 +240,14 @@ Hamstrings/Glutes: 12–13 sets
 <div id="week3" class="week">
 
 <div class="note">
-WEEK 3 – INTENSIFICATION
+⚡ WEEK 3 – INTENSIFICATION
 
 Bench: 1x1 @ RPE 8 + 3x3 @ 80%
 Squat: 1x1 @ RPE 8 + 3x3 @ 80%
-Deadlift: 3x2 @ 75–80% (NO singles)
+Deadlift: 3x2 @ 75–80%
 
-Accessories: -1 set each exercise
+Accessories: -1 set each
 
-TOTAL SETS:
 Chest: 10–11
 Back: 7
 Shoulders: 6
@@ -206,22 +263,13 @@ Hamstrings/Glutes: 9–10
 <div id="week4" class="week">
 
 <div class="note">
-WEEK 4 – OVERLOAD
+⚡ WEEK 4 – OVERLOAD
 
-Bench: 1x1 @ RPE 8.5 + 3x2 @ 85%
-Squat: 1x1 @ 8–8.5 + 3x2 @ 82–85%
-Deadlift: 2–3x2 @ 80–83%
+Heavy singles + doubles
+70–80% accessory volume
+No failure sets
 
-Volume: 70–80% accessories, no failure
-
-TOTAL SETS (same as Week 3):
-Chest: 10–11
-Back: 7
-Shoulders: 6
-Triceps: 10–11
-Biceps: 4
-Quads: 10
-Hamstrings/Glutes: 9–10
+Same volume as Week 3
 </div>
 
 </div>
@@ -230,23 +278,21 @@ Hamstrings/Glutes: 9–10
 <div id="week5" class="week">
 
 <div class="note">
-WEEK 5 – PEAK WEEK
+🏆 WEEK 5 – PEAK WEEK
 
-Bench: 90–97% single + 2x2 @ 80%
-Squat: 88–95% single + 2x2 @ 75–80%
-Deadlift: optional 85–92% single
+Bench 90–97%
+Squat 88–95%
+Optional deadlift single
 
-Back: pump only (2–3 sets per movement)
-Speed bench: 6x2 @ 65–70%
+Pump-only accessories
 
-TOTAL SETS:
 Chest: 9–11
 Back: 5–10
 Shoulders: 4–9
 Triceps: 6–10
 Biceps: 0–3
 Quads: 3–6
-Hamstrings/Glutes: 1–5
+Hamstrings: 1–5
 </div>
 
 </div>
@@ -255,13 +301,13 @@ Hamstrings/Glutes: 1–5
 <div id="week6" class="week">
 
 <div class="note">
-WEEK 6 – POST PEAK RESET
+🧠 WEEK 6 – RESET
 
 50–60% volume
 RPE 6–7 max
-NO singles, NO grinders, NO failure sets
+NO heavy singles
+NO failure
 
-TOTAL SETS:
 Chest: 11–13
 Back: 5–6
 Shoulders: 4–5
