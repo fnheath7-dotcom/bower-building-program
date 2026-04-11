@@ -1,383 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Heath Powerbuilding Program</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Training Program</title>
 
-  <style>
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #0f172a;
+        color: #e2e8f0;
     }
 
-    h1 {
-      text-align: center;
+    header {
+        text-align: center;
+        padding: 20px;
+        background: #111827;
+        font-size: 22px;
+        font-weight: bold;
     }
 
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #1f2937;
     }
 
-    button {
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      background: #222;
-      color: white;
-      border-radius: 6px;
+    .tab {
+        padding: 12px 18px;
+        cursor: pointer;
+        background: #1f2937;
+        border: none;
+        color: #e2e8f0;
+        font-weight: bold;
+        transition: 0.2s;
     }
 
-    button:hover {
-      background: #444;
+    .tab:hover {
+        background: #334155;
     }
 
-    .phase {
-      display: none;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #333;
-      border-radius: 10px;
-      background: #161616;
+    .tab.active {
+        background: #3b82f6;
+        color: white;
     }
 
-    .active {
-      display: block;
+    .content {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
     }
 
-    .section {
-      margin-bottom: 15px;
+    .week {
+        display: none;
+        animation: fade 0.3s ease-in-out;
     }
 
-    h2 {
-      color: #4da3ff;
+    .week.active {
+        display: block;
     }
-  </style>
+
+    .day {
+        background: #111827;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 10px;
+    }
+
+    .day h3 {
+        margin-top: 0;
+        color: #60a5fa;
+    }
+
+    .note {
+        background: #1f2937;
+        padding: 10px;
+        border-left: 4px solid #3b82f6;
+        margin: 10px 0;
+    }
+
+    @keyframes fade {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+</style>
 </head>
 
 <body>
 
-<h1>Heath’s Powerbuilding Program</h1>
+<header>6-Week Strength & Hypertrophy Program</header>
 
-<div class="nav">
-  <button onclick="showPhase('p1')">Phase 1 – Cut</button>
-  <button onclick="showPhase('p2')">Phase 2 – Bulk</button>
-  <button onclick="showPhase('p3')">Phase 3 – Maintenance</button>
-  <button onclick="showPhase('p4')">Phase 4 – Max Gains</button>
+<div class="tabs">
+    <button class="tab active" onclick="showWeek(1)">Week 1–2</button>
+    <button class="tab" onclick="showWeek(2)">Week 2+</button>
+    <button class="tab" onclick="showWeek(3)">Week 3</button>
+    <button class="tab" onclick="showWeek(4)">Week 4</button>
+    <button class="tab" onclick="showWeek(5)">Week 5</button>
+    <button class="tab" onclick="showWeek(6)">Week 6</button>
 </div>
 
-<!-- PHASE 1 -->
-<div id="p1" class="phase active">
-  <h2>Phase 1 – Cut (Weeks 1–5)</h2>
+<div class="content">
 
-  <div class="section">
-    <p><b>Calories:</b> 2300–2500 kcal/day</p>
-    <p><b>Protein:</b> ~215g/day</p>
-    <p><b>Cardio:</b> 
-Bulk (Weeks 6–17) Advanced Powerbuilding Program
-Calories: ~2,500–2,700 kcal/day (+200 surplus)
-Protein: ~215 g/day
-Tempo/TUT: 3s eccentric / 1s pause / 1–2s concentric
-Rest: Main lifts 2–3 min, accessories 60–90 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-Progression: +5 lbs on main lifts every 2 weeks
-Deload: After Week 12 → 50% volume, 60% weight
-DAY 1 – UPPER STRENGTH
-Barbell Bench Press
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WU4: 3 reps, RPE 7.5, Rest 2 min
-WS1: 3 reps, RPE 8, Rest 3 min
-WS2: 3 reps, RPE 8.5, Rest 3 min
-WS3: 3 reps, RPE 9, Rest 3 min
-Pendlay Row (Underhand Grip)
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WS1: 4x6 reps, RPE 8, Rest 3 min
-WS2: 4x6 reps, RPE 8.5, Rest 3 min
-WS3: 4x6 reps, RPE 9, Rest 3 min
-Overhead Press
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WS1: 4x5 reps, RPE 8, Rest 2–3 min
-WS2: 4x5 reps, RPE 8.5, Rest 2–3 min
-WS3: 4x5 reps, RPE 9, Rest 2–3 min
-Dumbbell Incline Press
-WU1: 12 reps, RPE 5, Rest 60 sec
-WU2: 10 reps, RPE 6, Rest 60 sec
-WS1: 3x8–10 reps, RPE 7–8, Rest 90 sec
-WS2: 3x8–10 reps, RPE 7.5–8.5, Rest 90 sec
-Accessory Lifts
-Dumbbell Hammer Curl: 3x12 reps, RPE 7, Rest 60 sec
-Rope Triceps Pushdown: 3x12 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 2 – LOWER STRENGTH
-Back Squat
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WU4: 3 reps, RPE 7.5, Rest 2 min
-WS1: 4x5 reps, RPE 8, Rest 3 min
-WS2: 4x5 reps, RPE 8.5, Rest 3 min
-WS3: 4x5 reps, RPE 9, Rest 3 min
-Deadlift
-WU1: 5 reps, RPE 5, Rest 90 sec
-WU2: 5 reps, RPE 6, Rest 2 min
-WU3: 3 reps, RPE 7, Rest 2 min
-WS1: 3x3 reps, RPE 8, Rest 3 min
-WS2: 3x3 reps, RPE 8.5, Rest 3 min
-WS3: 3x3 reps, RPE 9, Rest 3 min
-Single-Leg Press
-3x10 reps/leg, RPE 7–8, Rest 2–3 min
-Hamstring Curl
-3x12 reps, RPE 7, Rest 60–90 sec
-Standing Calf Raise
-4x12–15 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 3 – UPPER HYPERTROPHY
-Dumbbell Bench Press
-WU1: 12 reps, RPE 5, Rest 60 sec
-WU2: 10 reps, RPE 6, Rest 60 sec
-WU3: 8 reps, RPE 6.5, Rest 90 sec
-WS1: 4x10 reps, RPE 7, Rest 90 sec
-WS2: 4x10 reps, RPE 7.5, Rest 90 sec
-WS3: 4x10 reps, RPE 8, Rest 90 sec
-Lat Pulldown (V-Bar Grip)
-4x8–12 reps, RPE 7–8, Rest 90 sec
-Dumbbell Shoulder Press
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WS1: 3x10 reps, RPE 7, Rest 2 min
-WS2: 3x10 reps, RPE 7.5, Rest 2 min
-WS3: 3x10 reps, RPE 8, Rest 2 min
-Accessory Lifts
-Dumbbell Lateral Raise: 3x15 reps, RPE 7, Rest 60 sec
-Dumbbell Curl: 3x12 reps, RPE 7, Rest 60 sec
-Face Pull: 3x12–15 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 4 – LOWER HYPERTROPHY
-Back Squat
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WS1: 3x8 reps, RPE 7–8, Rest 2–3 min
-WS2: 3x8 reps, RPE 7.5–8, Rest 2–3 min
-WS3: 3x8 reps, RPE 8, Rest 2–3 min
-Romanian Deadlift
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 60 sec
-WS1: 3x10 reps, RPE 7–8, Rest 2–3 min
-WS2: 3x10 reps, RPE 7.5–8, Rest 2–3 min
-WS3: 3x10 reps, RPE 8, Rest 2–3 min
-Accessory Lifts
-Hack Squat Machine: 3x10–12 reps, RPE 7, Rest 90 sec
-Hamstring Curl: 3x12 reps, RPE 7, Rest 60–90 sec
-Leg Extension: 3x15 reps, RPE 7, Rest 60 sec
-Seated Calf Raise: 3x15 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 5 – UPPER/LOWER HYBRID ACCESSORIES
-Flat Dumbbell Bench Press
-WU1: 12 reps, RPE 5, Rest 60 sec
-WU2: 10 reps, RPE 6, Rest 60 sec
-WU3: 8 reps, RPE 6.5, Rest 90 sec
-WS1: 3x8 reps, RPE 7–8, Rest 90 sec
-WS2: 3x8 reps, RPE 7.5–8.5, Rest 90 sec
-WS3: 3x8 reps, RPE 8–9, Rest 90 sec
-Dumbbell Shoulder Press
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WS1: 3x10 reps, RPE 7, Rest 2 min
-WS2: 3x10 reps, RPE 7.5, Rest 2 min
-WS3: 3x10 reps, RPE 8, Rest 2 min
-Barbell Row (Overhand Grip)
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WS1: 3x8 reps, RPE 7–8, Rest 2–3 min
-WS2: 3x8 reps, RPE 8, Rest 2–3 min
-WS3: 3x8 reps, RPE 8.5–9, Rest 2–3 min
-Accessory Lifts
-Hyperextensions: 3x12 reps, RPE 7, Rest 60 sec
-Ab Crunch / Cable Crunch: 3x12–15 reps, RPE 7, Rest 60 sec
-Lat Pulldown / Pull-ups: 3x8–12 reps, RPE 7–8, Rest 90 sec
-Cardio: 15 min treadmill, incline 15, light → medium
+<!-- WEEK 1–2 -->
+<div id="week1" class="week active">
 
+    <div class="day">
+        <h3>DAY 1 – BENCH HEAVY</h3>
+        Bench: 5x3 @ RPE 7<br>
+        Incline DB: 3–4x10–12<br>
+        Cable Fly: 3x12–15<br>
+        Triceps Pushdown: 3–4x12–15
+    </div>
 
+    <div class="day">
+        <h3>DAY 2 – SQUAT</h3>
+        Squat: 5x5 @ RPE 7<br>
+        Hack Squat: 3x10<br>
+        Leg Press: 3x12<br>
+        Leg Extension: 3x15
+    </div>
 
-</p>
-  </div>
+    <div class="day">
+        <h3>DAY 3 – BACK + SHOULDERS</h3>
+        Lat Pulldown: 4x10–12<br>
+        Chest-supported row: 3x10<br>
+        Cable row: 3x12<br>
+        Lateral raise: 3x15<br>
+        Rear delt fly: 3x15<br>
+        Face pull: 3x15
+    </div>
 
-  <div class="section">
-    <h3>Day 1 – Upper Strength</h3>
-    <p>Barbell Bench Press – Working sets included</p>
-    <p>Pendlay Row – Working sets included</p>
-    <p>
-Phase 1 – Cut (Weeks 1–5) Advanced Powerbuilding Program
-Calories: 2,300–2,500 kcal/day
-Protein: ~215 g/day
-Tempo/TUT: 3s eccentric / 1s pause / 1–2s concentric
-Rest: Main lifts 2–3 min, accessories 60–90 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-Progression: +5 lbs on main lifts every 2 weeks
-Deload: After Week 5 → 50% volume, 60% weight
-DAY 1 – UPPER STRENGTH
-Main Lifts
-Barbell Bench Press
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WU4: 3 reps, RPE 7.5, Rest 2 min
-WS1: 3 reps, RPE 8, Rest 3 min
-WS2: 3 reps, RPE 8.5, Rest 3 min
-WS3: 3 reps, RPE 9, Rest 3 min
-WS4: 3 reps, RPE 9, Rest 3 min
-Pendlay Row
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WS1: 4x6 reps, RPE 8, Rest 3 min
-WS2: 4x6 reps, RPE 8.5, Rest 3 min
-WS3: 4x6 reps, RPE 9, Rest 3 min
-Overhead Press
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WS1: 4x5 reps, RPE 8, Rest 2–3 min
-WS2: 4x5 reps, RPE 8.5, Rest 2–3 min
-WS3: 4x5 reps, RPE 9, Rest 2–3 min
-Flat Dumbbell Bench Press
-WU1: 12 reps, RPE 5, Rest 60 sec
-WU2: 10 reps, RPE 6, Rest 60 sec
-WU3: 8 reps, RPE 6.5, Rest 90 sec
-WS1: 4x8 reps, RPE 7, Rest 90 sec
-WS2: 4x8 reps, RPE 7.5, Rest 90 sec
-WS3: 4x8 reps, RPE 8, Rest 90 sec
-Accessory Lifts
-Dips: 3x10, RPE 8, Rest 90 sec
-Dumbbell Curl: 3x12, RPE 7, Rest 60 sec
-Triceps Pushdown: 3x12, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 2 – LOWER STRENGTH
-Back Squat
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WU4: 3 reps, RPE 7.5, Rest 2 min
-WS1: 4x5 reps, RPE 8, Rest 3 min
-WS2: 4x5 reps, RPE 8.5, Rest 3 min
-WS3: 4x5 reps, RPE 9, Rest 3 min
-WS4: 4x5 reps, RPE 9, Rest 3 min
-Deadlift
-WU1: 5 reps, RPE 5, Rest 90 sec
-WU2: 5 reps, RPE 6, Rest 2 min
-WU3: 3 reps, RPE 7, Rest 2 min
-WS1: 3x3 reps, RPE 8, Rest 3 min
-WS2: 3x3 reps, RPE 8.5, Rest 3 min
-WS3: 3x3 reps, RPE 9, Rest 3 min
-Romanian Deadlift
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 60 sec
-WS1: 3x10 reps, RPE 7, Rest 2–3 min
-WS2: 3x10 reps, RPE 7.5, Rest 2–3 min
-WS3: 3x10 reps, RPE 7.5, Rest 2–3 min
-Accessory Lifts
-Leg Press: 4x10 reps, RPE 7–8, Rest 2–3 min
-Hamstring Curl: 3x12 reps, RPE 7, Rest 60–90 sec
-Leg Extension: 3x15 reps, RPE 7, Rest 60 sec
-Calf Raise: 3x15 reps, RPE 7, Rest 60 sec
-Hyperextensions: 3x12, RPE 7, Rest 60 sec
-Planks: 3x45–60 sec, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 3 – UPPER HYPERTROPHY
-Dumbbell Bench Press
-WU1: 12 reps, RPE 5, Rest 60 sec
-WU2: 10 reps, RPE 6, Rest 60 sec
-WU3: 8 reps, RPE 6.5, Rest 90 sec
-WS1: 4x10 reps, RPE 7, Rest 90 sec
-WS2: 4x10 reps, RPE 7.5, Rest 90 sec
-WS3: 4x10 reps, RPE 8, Rest 90 sec
-Pull-ups / Lat Pulldown: 3x8–10 reps, RPE 7–8, Rest 90 sec
-Dumbbell Shoulder Press
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WS1: 3x10 reps, RPE 7, Rest 2 min
-WS2: 3x10 reps, RPE 7.5, Rest 2 min
-WS3: 3x10 reps, RPE 8, Rest 2 min
-Accessory Lifts
-Dumbbell Fly: 3x12 reps, RPE 7, Rest 60 sec
-Dumbbell Lateral Raise: 3x15 reps, RPE 7, Rest 60 sec
-Cable Face Pull: 3x12–15 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
-DAY 4 – LOWER HYPERTROPHY
-Back Squat
-WU1: 10 reps, RPE 5, Rest 90 sec
-WU2: 8 reps, RPE 6, Rest 90 sec
-WU3: 5 reps, RPE 7, Rest 2 min
-WS1: 3x8 reps, RPE 7, Rest 2–3 min
-WS2: 3x8 reps, RPE 7.5, Rest 2–3 min
-WS3: 3x8 reps, RPE 8, Rest 2–3 min
-Romanian Deadlift
-WU1: 10 reps, RPE 5, Rest 60 sec
-WU2: 8 reps, RPE 6, Rest 60 sec
-WS1: 3x10 reps, RPE 7, Rest 2–3 min
-WS2: 3x10 reps, RPE 7.5, Rest 2–3 min
-WS3: 3x10 reps, RPE 7.5, Rest 2–3 min
-Accessory Lifts
-Leg Press: 3x12 reps, RPE 7–8, Rest 90 sec
-Hamstring Curl: 3x12 reps, RPE 7, Rest 60–90 sec
-Leg Extension: 3x15 reps, RPE 7, Rest 60 sec
-Seated Calf Raise: 3x15 reps, RPE 7, Rest 60 sec
-Hyperextensions: 3x12 reps, RPE 7, Rest 60 sec
-Cardio: 15 min treadmill, incline 15, light → medium
+    <div class="day">
+        <h3>DAY 4 – DEADLIFT + HAMSTRINGS</h3>
+        Deadlift: 3x3 @ 70–72%<br>
+        RDL: 3x8<br>
+        Ham curl: 3–4x12<br>
+        Glute bridge: 3x10
+    </div>
 
-</p>
-  </div>
+    <div class="day">
+        <h3>DAY 5 – BENCH VOLUME + ARMS</h3>
+        Bench: 4x6 @ RPE 7<br>
+        Incline DB: 3x10<br>
+        Dips: 3x10<br>
+        Curl: 3x12–15<br>
+        Hammer curl: 3x12<br>
+        Triceps ext: 3x12
+    </div>
+
 </div>
 
-<!-- PHASE 2 -->
-<div id="p2" class="phase">
-  <h2>Phase 2 – Bulk (Weeks 6–17)</h2>
+<!-- WEEK 2 PROGRESSION -->
+<div id="week2" class="week">
 
-  <div class="section">
-    <p><b>Calories:</b> 2500–2700 kcal/day</p>
-    <p><b>Protein:</b> ~215g/day</p>
-    <p><b>Goal:</b> Lean mass gain</p>
-  </div>
+    <div class="note">
+        🔼 WEEK 2 PROGRESSION<br>
+        +2.5–5 lb compounds<br>
+        Bench: 5x3 @ RPE 7.5<br>
+        Squat: 5x5 → 4x5 @ RPE 7.5<br>
+        Deadlift: 3x3 @ 72–75%<br>
+        Accessories unchanged
+    </div>
+
 </div>
 
-<!-- PHASE 3 -->
-<div id="p3" class="phase">
-  <h2>Phase 3 – Maintenance (Weeks 18–29)</h2>
+<!-- WEEK 3 -->
+<div id="week3" class="week">
 
-  <div class="section">
-    <p><b>Calories:</b> 2500–2600 kcal/day</p>
-    <p><b>Goal:</b> Maintain strength + size</p>
-  </div>
+    <div class="note">
+        🔵 WEEK 3 – INTENSIFICATION<br><br>
+
+        BENCH:<br>
+        1x1 @ RPE 8<br>
+        3x3 @ 80%<br><br>
+
+        SQUAT:<br>
+        1x1 @ RPE 8<br>
+        3x3 @ 80%<br><br>
+
+        DEADLIFT:<br>
+        3x2 @ 75–80% (NO singles)<br><br>
+
+        Accessories: reduce only 1 set per exercise
+    </div>
+
 </div>
 
-<!-- PHASE 4 -->
-<div id="p4" class="phase">
-  <h2>Phase 4 – Max Gains / Peaking (Weeks 30–36)</h2>
+<!-- WEEK 4 -->
+<div id="week4" class="week">
 
-  <div class="section">
-    <p><b>Calories:</b> 2600–2700 kcal/day</p>
-    <p><b>Goal:</b> Peak strength & PRs</p>
-  </div>
+    <div class="note">
+        🔵 WEEK 4 – OVERLOAD<br><br>
+
+        BENCH:<br>
+        1x1 @ RPE 8.5<br>
+        3x2 @ 85%<br><br>
+
+        SQUAT:<br>
+        1x1 @ RPE 8–8.5<br>
+        3x2 @ 82–85%<br><br>
+
+        DEADLIFT:<br>
+        2–3x2 @ 80–83%<br><br>
+
+        Accessories: keep 70–80% volume, no failure sets
+    </div>
+
+</div>
+
+<!-- WEEK 5 -->
+<div id="week5" class="week">
+
+    <div class="note">
+        🔵 WEEK 5 – PEAK WEEK<br><br>
+
+        Bench: single 90–97% + 2x2 @ 80%<br>
+        Squat: single 88–95% + 2x2 @ 75–80%<br>
+        Deadlift: optional single 85–92%<br><br>
+
+        Recovery day: pump only (RPE 6–7)<br>
+        Speed bench: 6x2 @ 65–70%
+    </div>
+
+</div>
+
+<!-- WEEK 6 -->
+<div id="week6" class="week">
+
+    <div class="note">
+        🧠 WEEK 6 – POST PEAK RESET<br><br>
+
+        50–60% normal volume<br>
+        RPE 6–7 max<br>
+        NO singles<br>
+        NO grinders<br>
+        NO failure sets<br><br>
+
+        Purpose: recovery + growth lock-in
+    </div>
+
+</div>
+
 </div>
 
 <script>
-function showPhase(id) {
-  const phases = document.querySelectorAll('.phase');
-  phases.forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+function showWeek(num) {
+    let weeks = document.querySelectorAll('.week');
+    let tabs = document.querySelectorAll('.tab');
+
+    weeks.forEach(w => w.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+
+    document.getElementById('week' + num).classList.add('active');
+    tabs[num - 1].classList.add('active');
 }
 </script>
 
