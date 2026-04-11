@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Training Program</title>
+<title>6-Week Training Program</title>
 
 <style>
     body {
-        font-family: Arial, sans-serif;
         margin: 0;
+        font-family: Arial, sans-serif;
         background: #0f172a;
         color: #e2e8f0;
     }
@@ -29,13 +29,12 @@
     }
 
     .tab {
-        padding: 12px 18px;
+        padding: 12px 16px;
         cursor: pointer;
         background: #1f2937;
         border: none;
         color: #e2e8f0;
         font-weight: bold;
-        transition: 0.2s;
     }
 
     .tab:hover {
@@ -55,46 +54,41 @@
 
     .week {
         display: none;
-        animation: fade 0.3s ease-in-out;
     }
 
     .week.active {
         display: block;
     }
 
-    .day {
+    .day, .block {
         background: #111827;
         padding: 15px;
         margin: 10px 0;
         border-radius: 10px;
     }
 
-    .day h3 {
+    h3 {
         margin-top: 0;
         color: #60a5fa;
     }
 
     .note {
         background: #1f2937;
-        padding: 10px;
+        padding: 12px;
         border-left: 4px solid #3b82f6;
         margin: 10px 0;
-    }
-
-    @keyframes fade {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        white-space: pre-line;
     }
 </style>
 </head>
 
 <body>
 
-<header>6-Week Strength & Hypertrophy Program</header>
+<header>6-Week Strength Program</header>
 
 <div class="tabs">
-    <button class="tab active" onclick="showWeek(1)">Week 1–2</button>
-    <button class="tab" onclick="showWeek(2)">Week 2+</button>
+    <button class="tab active" onclick="showWeek(1)">Week 1</button>
+    <button class="tab" onclick="showWeek(2)">Week 2</button>
     <button class="tab" onclick="showWeek(3)">Week 3</button>
     <button class="tab" onclick="showWeek(4)">Week 4</button>
     <button class="tab" onclick="showWeek(5)">Week 5</button>
@@ -103,143 +97,179 @@
 
 <div class="content">
 
-<!-- WEEK 1–2 -->
+<!-- WEEK 1 -->
 <div id="week1" class="week active">
 
-    <div class="day">
-        <h3>DAY 1 – BENCH HEAVY</h3>
-        Bench: 5x3 @ RPE 7<br>
-        Incline DB: 3–4x10–12<br>
-        Cable Fly: 3x12–15<br>
-        Triceps Pushdown: 3–4x12–15
-    </div>
+<div class="day"><h3>MONDAY – BENCH HEAVY</h3>
+Bench: 5x3 @ RPE 7<br>
+Incline DB: 3–4x10–12<br>
+Cable Fly: 3x12–15<br>
+Triceps Pushdown: 3–4x12–15
+</div>
 
-    <div class="day">
-        <h3>DAY 2 – SQUAT</h3>
-        Squat: 5x5 @ RPE 7<br>
-        Hack Squat: 3x10<br>
-        Leg Press: 3x12<br>
-        Leg Extension: 3x15
-    </div>
+<div class="day"><h3>TUESDAY – SQUAT</h3>
+Squat: 5x5 @ RPE 7<br>
+Hack Squat: 3x10<br>
+Leg Press: 3x12<br>
+Leg Extension: 3x15
+</div>
 
-    <div class="day">
-        <h3>DAY 3 – BACK + SHOULDERS</h3>
-        Lat Pulldown: 4x10–12<br>
-        Chest-supported row: 3x10<br>
-        Cable row: 3x12<br>
-        Lateral raise: 3x15<br>
-        Rear delt fly: 3x15<br>
-        Face pull: 3x15
-    </div>
+<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
+Lat Pulldown: 4x10–12<br>
+Chest-supported row: 3x10<br>
+Cable row: 3x12<br>
+Lateral raise: 3x15<br>
+Rear delt fly: 3x15<br>
+Face pull: 3x15
+</div>
 
-    <div class="day">
-        <h3>DAY 4 – DEADLIFT + HAMSTRINGS</h3>
-        Deadlift: 3x3 @ 70–72%<br>
-        RDL: 3x8<br>
-        Ham curl: 3–4x12<br>
-        Glute bridge: 3x10
-    </div>
+<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
+Deadlift: 3x3 @ 70–72%<br>
+RDL: 3x8<br>
+Ham curl: 3–4x12<br>
+Glute bridge: 3x10
+</div>
 
-    <div class="day">
-        <h3>DAY 5 – BENCH VOLUME + ARMS</h3>
-        Bench: 4x6 @ RPE 7<br>
-        Incline DB: 3x10<br>
-        Dips: 3x10<br>
-        Curl: 3x12–15<br>
-        Hammer curl: 3x12<br>
-        Triceps ext: 3x12
-    </div>
+<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
+Bench: 4x6 @ RPE 7<br>
+Incline DB: 3x10<br>
+Dips: 3x10<br>
+Curl: 3x12–15<br>
+Hammer curl: 3x12<br>
+Triceps ext: 3x12
+</div>
+
+<div class="note">
+WEEK 1 – TOTAL SETS PER MUSCLE
+
+Chest: 21–22 sets
+Back: 10 sets
+Shoulders: 9 sets
+Triceps: 18–19 sets
+Biceps: 6 sets
+Quads: 14 sets
+Hamstrings/Glutes: 12–13 sets
+</div>
 
 </div>
 
-<!-- WEEK 2 PROGRESSION -->
+<!-- WEEK 2 -->
 <div id="week2" class="week">
 
-    <div class="note">
-        🔼 WEEK 2 PROGRESSION<br>
-        +2.5–5 lb compounds<br>
-        Bench: 5x3 @ RPE 7.5<br>
-        Squat: 5x5 → 4x5 @ RPE 7.5<br>
-        Deadlift: 3x3 @ 72–75%<br>
-        Accessories unchanged
-    </div>
+<div class="day"><h3>WEEK 2 – BASE BUILD (4-DAY SPLIT)</h3>
+Same structure as Week 1 with:
+- Bench: 5x3 @ RPE 7.5
+- Squat: 5x5 → 4x5 @ RPE 7.5
+- Deadlift: 3x3 @ 72–75%
+- +2.5–5 lb compounds
+</div>
+
+<div class="note">
+WEEK 2 – TOTAL SETS PER MUSCLE (SAME AS WEEK 1)
+
+Chest: 21–22 sets
+Back: 10 sets
+Shoulders: 9 sets
+Triceps: 18–19 sets
+Biceps: 6 sets
+Quads: 14 sets
+Hamstrings/Glutes: 12–13 sets
+</div>
 
 </div>
 
 <!-- WEEK 3 -->
 <div id="week3" class="week">
 
-    <div class="note">
-        🔵 WEEK 3 – INTENSIFICATION<br><br>
+<div class="note">
+WEEK 3 – INTENSIFICATION
 
-        BENCH:<br>
-        1x1 @ RPE 8<br>
-        3x3 @ 80%<br><br>
+Bench: 1x1 @ RPE 8 + 3x3 @ 80%
+Squat: 1x1 @ RPE 8 + 3x3 @ 80%
+Deadlift: 3x2 @ 75–80% (NO singles)
 
-        SQUAT:<br>
-        1x1 @ RPE 8<br>
-        3x3 @ 80%<br><br>
+Accessories: -1 set each exercise
 
-        DEADLIFT:<br>
-        3x2 @ 75–80% (NO singles)<br><br>
-
-        Accessories: reduce only 1 set per exercise
-    </div>
+TOTAL SETS:
+Chest: 10–11
+Back: 7
+Shoulders: 6
+Triceps: 10–11
+Biceps: 4
+Quads: 10
+Hamstrings/Glutes: 9–10
+</div>
 
 </div>
 
 <!-- WEEK 4 -->
 <div id="week4" class="week">
 
-    <div class="note">
-        🔵 WEEK 4 – OVERLOAD<br><br>
+<div class="note">
+WEEK 4 – OVERLOAD
 
-        BENCH:<br>
-        1x1 @ RPE 8.5<br>
-        3x2 @ 85%<br><br>
+Bench: 1x1 @ RPE 8.5 + 3x2 @ 85%
+Squat: 1x1 @ 8–8.5 + 3x2 @ 82–85%
+Deadlift: 2–3x2 @ 80–83%
 
-        SQUAT:<br>
-        1x1 @ RPE 8–8.5<br>
-        3x2 @ 82–85%<br><br>
+Volume: 70–80% accessories, no failure
 
-        DEADLIFT:<br>
-        2–3x2 @ 80–83%<br><br>
-
-        Accessories: keep 70–80% volume, no failure sets
-    </div>
+TOTAL SETS (same as Week 3):
+Chest: 10–11
+Back: 7
+Shoulders: 6
+Triceps: 10–11
+Biceps: 4
+Quads: 10
+Hamstrings/Glutes: 9–10
+</div>
 
 </div>
 
 <!-- WEEK 5 -->
 <div id="week5" class="week">
 
-    <div class="note">
-        🔵 WEEK 5 – PEAK WEEK<br><br>
+<div class="note">
+WEEK 5 – PEAK WEEK
 
-        Bench: single 90–97% + 2x2 @ 80%<br>
-        Squat: single 88–95% + 2x2 @ 75–80%<br>
-        Deadlift: optional single 85–92%<br><br>
+Bench: 90–97% single + 2x2 @ 80%
+Squat: 88–95% single + 2x2 @ 75–80%
+Deadlift: optional 85–92% single
 
-        Recovery day: pump only (RPE 6–7)<br>
-        Speed bench: 6x2 @ 65–70%
-    </div>
+Back: pump only (2–3 sets per movement)
+Speed bench: 6x2 @ 65–70%
+
+TOTAL SETS:
+Chest: 9–11
+Back: 5–10
+Shoulders: 4–9
+Triceps: 6–10
+Biceps: 0–3
+Quads: 3–6
+Hamstrings/Glutes: 1–5
+</div>
 
 </div>
 
 <!-- WEEK 6 -->
 <div id="week6" class="week">
 
-    <div class="note">
-        🧠 WEEK 6 – POST PEAK RESET<br><br>
+<div class="note">
+WEEK 6 – POST PEAK RESET
 
-        50–60% normal volume<br>
-        RPE 6–7 max<br>
-        NO singles<br>
-        NO grinders<br>
-        NO failure sets<br><br>
+50–60% volume
+RPE 6–7 max
+NO singles, NO grinders, NO failure sets
 
-        Purpose: recovery + growth lock-in
-    </div>
+TOTAL SETS:
+Chest: 11–13
+Back: 5–6
+Shoulders: 4–5
+Triceps: 9–11
+Biceps: 3
+Quads: 7–8
+Hamstrings/Glutes: 6–8
+</div>
 
 </div>
 
