@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Battle Gym App</title>
-
-<link rel="manifest" id="manifestPlaceholder">
+<title>Battle Gym 6-Week Program</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     color: #f1f5f9;
     background: radial-gradient(circle at top, #1a0000, #000000 60%);
     overflow-x: hidden;
 }
 
-/* SIDE VISUALS */
+/* SIDE BARS */
 .side {
     position: fixed;
-    width: 160px;
-    opacity: 0.1;
-    filter: drop-shadow(0 0 10px red);
+    width: 170px;
+    opacity: 0.10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 12px red);
 }
 .left { left: 10px; top: 20%; }
 .right { right: 10px; top: 20%; }
@@ -30,9 +29,10 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 900;
     color: #ff2b2b;
+    text-shadow: 0 0 20px black;
 }
 
 /* TABS */
@@ -40,15 +40,16 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background: rgba(30,0,0,0.6);
+    background: rgba(40,0,0,0.6);
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 .tab {
     padding: 12px;
     cursor: pointer;
-    background: transparent;
     border: none;
+    background: transparent;
     color: white;
     font-weight: bold;
 }
@@ -58,13 +59,18 @@ header {
 }
 
 /* CONTENT */
-.content { max-width: 900px; margin: auto; padding: 10px; }
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
 .week { display: none; }
 .week.active { display: block; }
 
 .day {
-    background: rgba(0,0,0,0.7);
-    border: 1px solid rgba(255,0,0,0.2);
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(255,0,0,0.25);
     margin: 10px 0;
     padding: 12px;
     border-radius: 10px;
@@ -72,36 +78,30 @@ header {
 
 h3 { color: #ff3b3b; }
 
-label { display:block; margin:5px 0; }
+label { display:block; margin:4px 0; }
 
-/* PR + METER */
-.pr-box {
+.quote {
+    border-left: 4px solid red;
+    padding: 8px;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.pr {
     background: rgba(255,0,0,0.05);
     border: 1px solid red;
     padding: 10px;
     margin-top: 10px;
 }
 
-meter {
-    width: 100%;
-    height: 20px;
-}
+meter { width: 100%; height: 20px; }
 
-/* LEADERBOARD */
-.board {
-    margin-top: 10px;
-    background: rgba(255,0,0,0.05);
-    border: 1px solid red;
-    padding: 10px;
-}
-
-/* BUTTON */
 button.save {
     margin-top: 5px;
     background: red;
-    color: white;
     border: none;
     padding: 5px;
+    color: white;
     cursor: pointer;
 }
 </style>
@@ -112,7 +112,7 @@ button.save {
 <img class="side left" src="https://img.icons8.com/ios-filled/500/barbell.png">
 <img class="side right" src="https://img.icons8.com/ios-filled/500/dumbbell.png">
 
-<header>🔥 BATTLE GYM APP</header>
+<header>🔥 BATTLE GYM 6-WEEK PROGRAM</header>
 
 <div class="tabs">
 <button class="tab active" onclick="showWeek(1)">W1</button>
@@ -125,50 +125,120 @@ button.save {
 
 <div class="content">
 
-<!-- WEEK 1 -->
+<!-- ================= WEEK 1 ================= -->
 <div id="week1" class="week active">
 
-<div class="day">
-<h3>MON – BENCH</h3>
-<label><input type="checkbox" onclick="tick()"> Bench 5x3</label>
-<label><input type="checkbox" onclick="tick()"> Incline DB</label>
-<label><input type="checkbox" onclick="tick()"> Fly</label>
-<label><input type="checkbox" onclick="tick()"> Pushdown</label>
-</div>
+<div class="quote">“Discipline beats motivation.”</div>
+<div class="quote">“Built in silence.”</div>
 
-<div class="pr-box">
+<div class="day"><h3>MON – BENCH HEAVY</h3>
+Bench 5x3 @ RPE 7<br>Incline DB 3–4x10–12<br>Cable Fly 3x12–15<br>Pushdown 3–4x12–15</div>
+
+<div class="day"><h3>TUE – SQUAT</h3>
+Squat 5x5 @ RPE 7<br>Hack 3x10<br>Leg Press 3x12<br>Extension 3x15</div>
+
+<div class="day"><h3>WED – BACK</h3>
+Lat 4x10–12<br>Row 3x10<br>Cable 3x12<br>Rear delt 3x15<br>Face pull 3x15</div>
+
+<div class="day"><h3>THU – DEADLIFT</h3>
+Deadlift 3x3 @ 70–72%<br>RDL 3x8<br>Ham curl 3x12<br>Glute bridge 3x10</div>
+
+<div class="day"><h3>FRI – ARMS + BENCH</h3>
+Bench 4x6<br>Incline DB 3x10<br>Dips 3x10<br>Curls 3x12–15</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Chest 21–22<br>Back 10<br>Shoulders 9<br>Triceps 18–19<br>Biceps 6<br>Quads 14<br>Hamstrings 12–13</div>
+
+<div class="pr">
 <h3>PR TRACKER</h3>
 Bench <input id="b" type="number" oninput="update()"><br>
 Squat <input id="s" type="number" oninput="update()"><br>
 Deadlift <input id="d" type="number" oninput="update()"><br>
 
-<h3>STRENGTH METER</h3>
 <meter id="meter" min="0" max="1500" value="0"></meter>
-
-<button class="save" onclick="savePR()">SAVE PRs</button>
-</div>
-
-<div class="board">
-<h3>LEADERBOARD (LOCAL)</h3>
-<input id="name" placeholder="name">
-<button class="save" onclick="saveBoard()">Save Score</button>
-<div id="list"></div>
+<button class="save" onclick="savePR()">SAVE</button>
 </div>
 
 </div>
 
-<!-- other weeks simplified but still active -->
-<div id="week2" class="week"><div class="day"><h3>WEEK 2 FULL PROGRAM</h3>Same structure + progression</div></div>
-<div id="week3" class="week"><div class="day"><h3>WEEK 3 INTENSITY</h3>Singles + 80%</div></div>
-<div id="week4" class="week"><div class="day"><h3>WEEK 4 OVERLOAD</h3>Heavy doubles</div></div>
-<div id="week5" class="week"><div class="day"><h3>WEEK 5 PEAK</h3>PR attempts</div></div>
-<div id="week6" class="week"><div class="day"><h3>WEEK 6 RESET</h3>Recovery</div></div>
+<!-- ================= WEEK 2 ================= -->
+<div id="week2" class="week">
+<div class="quote">“You don’t miss workouts.”</div>
+<div class="quote">“Earn every rep.”</div>
+
+<div class="day"><h3>MON – BENCH</h3>5x3 @ 7.5</div>
+<div class="day"><h3>TUE – SQUAT</h3>5x5 → 4x5 @ 7.5</div>
+<div class="day"><h3>WED – BACK</h3>Same structure</div>
+<div class="day"><h3>THU – DEADLIFT</h3>3x3 @ 72–75%</div>
+<div class="day"><h3>FRI – ARMS</h3>Same volume</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Chest 21–22<br>Back 10<br>Shoulders 9<br>Triceps 18–19<br>Biceps 6<br>Quads 14<br>Hamstrings 12–13</div>
+</div>
+
+<!-- ================= WEEK 3 ================= -->
+<div id="week3" class="week">
+<div class="quote">“Pressure creates power.”</div>
+<div class="quote">“Stay hard.”</div>
+
+<div class="day"><h3>MON – BENCH</h3>1x1 + 3x3 @ 80%</div>
+<div class="day"><h3>TUE – SQUAT</h3>1x1 + 3x3 @ 80%</div>
+<div class="day"><h3>WED – BACK</h3>Reduced volume</div>
+<div class="day"><h3>THU – DEADLIFT</h3>3x2 @ 75–80%</div>
+<div class="day"><h3>FRI – ARMS</h3>Reduced</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Chest 10–11<br>Back 7<br>Shoulders 6<br>Triceps 10–11<br>Biceps 4<br>Quads 10<br>Hamstrings 9–10</div>
+</div>
+
+<!-- ================= WEEK 4 ================= -->
+<div id="week4" class="week">
+<div class="quote">“No comfort.”</div>
+<div class="quote">“Earn it.”</div>
+
+<div class="day"><h3>MON – BENCH</h3>1x1 + 3x2 @ 85%</div>
+<div class="day"><h3>TUE – SQUAT</h3>1x1 + 3x2</div>
+<div class="day"><h3>WED – BACK</h3>Reduced</div>
+<div class="day"><h3>THU – DEADLIFT</h3>2–3x2</div>
+<div class="day"><h3>FRI – ARMS</h3>Pump only</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Same as Week 3</div>
+</div>
+
+<!-- ================= WEEK 5 ================= -->
+<div id="week5" class="week">
+<div class="quote">“This is war.”</div>
+<div class="quote">“One rep changes everything.”</div>
+
+<div class="day"><h3>MON – BENCH PEAK</h3>Single 90–97%</div>
+<div class="day"><h3>TUE – SQUAT PEAK</h3>Single 88–95%</div>
+<div class="day"><h3>WED – RECOVERY</h3>Pump only</div>
+<div class="day"><h3>THU – DEADLIFT</h3>Optional single</div>
+<div class="day"><h3>FRI – SPEED BENCH</h3>6x2</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Chest 9–11<br>Back 5–10<br>Shoulders 4–9<br>Triceps 6–10<br>Biceps 0–3<br>Quads 3–6<br>Hamstrings 1–5</div>
+</div>
+
+<!-- ================= WEEK 6 ================= -->
+<div id="week6" class="week">
+<div class="quote">“Recover to grow.”</div>
+<div class="quote">“Come back stronger.”</div>
+
+<div class="day"><h3>MON – RESET</h3>50–60% volume</div>
+<div class="day"><h3>TUE – LIGHT SQUAT</h3>Technique</div>
+<div class="day"><h3>WED – LIGHT BACK</h3>Pump</div>
+<div class="day"><h3>THU – LIGHT DEADLIFT</h3>Optional</div>
+<div class="day"><h3>FRI – RECOVERY</h3>Mobility</div>
+
+<div class="day"><h3>TOTAL SETS</h3>
+Chest 11–13<br>Back 5–6<br>Shoulders 4–5<br>Triceps 9–11<br>Biceps 3<br>Quads 7–8<br>Hamstrings 6–8</div>
+</div>
 
 </div>
 
 <script>
-
-/* ===== TABS ===== */
 function showWeek(n){
 let w=document.querySelectorAll(".week");
 let t=document.querySelectorAll(".tab");
@@ -178,35 +248,21 @@ document.getElementById("week"+n).classList.add("active");
 t[n-1].classList.add("active");
 }
 
-/* ===== SOUND ===== */
-function tick(){
-let ctx=new AudioContext();
-let o=ctx.createOscillator();
-o.frequency.value=600;
-o.connect(ctx.destination);
-o.start();
-o.stop(ctx.currentTime+0.1);
-}
-
-/* ===== PR + METER ===== */
 function update(){
 let b=+document.getElementById("b").value||0;
 let s=+document.getElementById("s").value||0;
 let d=+document.getElementById("d").value||0;
-let total=b+s+d;
-document.getElementById("meter").value=total;
+document.getElementById("meter").value=b+s+d;
 }
 
-/* SAVE PR */
 function savePR(){
 localStorage.setItem("pr",JSON.stringify({
-b:document.getElementById("b").value,
+b,b:document.getElementById("b").value,
 s:document.getElementById("s").value,
 d:document.getElementById("d").value
 }));
 }
 
-/* LOAD */
 window.onload=()=>{
 let data=JSON.parse(localStorage.getItem("pr"));
 if(data){
@@ -215,52 +271,7 @@ document.getElementById("s").value=data.s;
 document.getElementById("d").value=data.d;
 update();
 }
-loadBoard();
 }
-
-/* LEADERBOARD */
-function saveBoard(){
-let name=document.getElementById("name").value;
-let pr=+document.getElementById("b").value+
-+document.getElementById("s").value+
-+document.getElementById("d").value;
-
-let board=JSON.parse(localStorage.getItem("board")||"[]");
-board.push({name,pr});
-localStorage.setItem("board",JSON.stringify(board));
-loadBoard();
-}
-
-function loadBoard(){
-let board=JSON.parse(localStorage.getItem("board")||"[]");
-board.sort((a,b)=>b.pr-a.pr);
-document.getElementById("list").innerHTML=
-board.map(x=>`<div>${x.name} - ${x.pr}</div>`).join("");
-}
-
-/* ===== PWA (INSTALLABLE APP) ===== */
-const manifest = {
-name:"Battle Gym App",
-short_name:"GymApp",
-start_url:".",
-display:"standalone",
-background_color:"#000000",
-theme_color:"#ff0000"
-};
-
-const blob = new Blob([JSON.stringify(manifest)], {type:"application/json"});
-document.getElementById("manifestPlaceholder").href = URL.createObjectURL(blob);
-
-/* service worker */
-if('serviceWorker' in navigator){
-const sw = `
-self.addEventListener('install',e=>self.skipWaiting());
-self.addEventListener('fetch',e=>{});
-`;
-const swBlob = new Blob([sw],{type:"text/javascript"});
-navigator.serviceWorker.register(URL.createObjectURL(swBlob));
-}
-
 </script>
 
 </body>
