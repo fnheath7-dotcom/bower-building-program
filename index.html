@@ -16,418 +16,13 @@ overflow-x:hidden;
 
 header{
 text-align:center;
-padding:20px;
-font-size:32px;
+padding:18px;
+font-size:30px;
 font-weight:900;
 color:#ff2b2b;
 }
 
-.tabs{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-background:#100;
-position:sticky;
-top:0;
-}
-
-.tab{
-padding:10px;
-background:none;
-border:none;
-color:white;
-cursor:pointer;
-font-weight:bold;
-}
-
-.tab.active{
-color:red;
-border-bottom:2px solid red;
-}
-
-.week{
-display:none;
-max-width:900px;
-margin:auto;
-padding:10px;
-}
-
-.week.active{display:block;}
-
-.day{
-background:#111;
-border-left:3px solid red;
-padding:10px;
-margin:10px 0;
-}
-
-h3{color:#ff3b3b;}
-
-.quote{
-border-left:4px solid red;
-padding:8px;
-margin:10px 0;
-font-style:italic;
-}
-
-/* XP SYSTEM */
 .xpBox{
-position:sticky;
-top:50px;
-background:#000;
-padding:10px;
-border:1px solid red;
-}
-
-.bar{
-width:100%;
-height:15px;
-background:#222;
-}
-
-.fill{
-height:100%;
-width:0%;
-background:red;
-transition:0.3s;
-}
-</style>
-</head>
-
-<body>
-
-<header>🔥 FINAL FORM GYM RPG</header>
-
-<div class="xpBox">
-LEVEL: <span id="lvl">1</span> | XP: <span id="xp">0</span>/100
-<div class="bar"><div class="fill" id="fill"></div></div>
-</div>
-
-<div class="tabs">
-<button class="tab active" onclick="show(1)">W1</button>
-<button class="tab" onclick="show(2)">W2</button>
-<button class="tab" onclick="show(3)">W3</button>
-<button class="tab" onclick="show(4)">W4</button>
-<button class="tab" onclick="show(5)">W5</button>
-<button class="tab" onclick="show(6)">W6</button>
-</div>
-
-<div class="content">
-
-<!-- ================= WEEK 1–2 BASE BUILD ================= -->
-<div id="w1" class="week active">
-
-<div class="quote">“Discipline beats motivation.”</div>
-
-<div class="day"><h3>DAY 1 – BENCH HEAVY</h3>
-Bench 5x3 @ RPE 7<br>
-Incline DB 3–4x10–12<br>
-Cable Fly 3x12–15<br>
-Triceps Pushdown 3–4x12–15
-</div>
-
-<div class="day"><h3>DAY 2 – SQUAT</h3>
-Squat 5x5 @ RPE 7<br>
-Hack Squat 3x10<br>
-Leg Press 3x12<br>
-Leg Extension 3x15
-</div>
-
-<div class="day"><h3>DAY 3 – BACK + SHOULDERS</h3>
-Lat Pulldown 4x10–12<br>
-Chest Row 3x10<br>
-Cable Row 3x12<br>
-Lateral Raise 3x15<br>
-Rear Delt Fly 3x15<br>
-Face Pull 3x15
-</div>
-
-<div class="day"><h3>DAY 4 – DEADLIFT</h3>
-Deadlift 3x3 @ 70–72%<br>
-RDL 3x8<br>
-Ham Curl 3–4x12<br>
-Glute Bridge 3x10
-</div>
-
-<div class="day"><h3>DAY 5 – ARMS</h3>
-Bench 4x6 @ RPE 7<br>
-Incline DB 3x10<br>
-Dips 3x10<br>
-Curl 3x12–15<br>
-Hammer Curl 3x12<br>
-Triceps Ext 3x12
-</div>
-
-</div>
-
-<!-- ================= WEEK 2 ================= -->
-<div id="w2" class="week">
-<div class="quote">“Progress is earned.”</div>
-<div class="day">+2.5–5 lb compounds</div>
-</div>
-
-<!-- ================= WEEK 3 ================= -->
-<div id="w3" class="week">
-<div class="quote">“Intensification phase.”</div>
-<div class="day">Bench 1x1 + 3x3 @ 80%</div>
-<div class="day">Squat 1x1 + 3x3 @ 80%</div>
-<div class="day">Deadlift 3x2 @ 75–80%</div>
-</div>
-
-<!-- ================= WEEK 4 ================= -->
-<div id="w4" class="week">
-<div class="quote">“Overload.”</div>
-<div class="day">Heavy doubles phase</div>
-</div>
-
-<!-- ================= WEEK 5 ================= -->
-<div id="w5" class="week">
-<div class="quote">“BOSS FIGHT WEEK.”</div>
-<div class="day">Bench 90–97%</div>
-<div class="day">Squat 88–95%</div>
-<div class="day">Speed Bench 6x2</div>
-</div>
-
-<!-- ================= WEEK 6 ================= -->
-<div id="w6" class="week">
-<div class="quote">“RESET & GROW.”</div>
-<div class="day">50–60% volume deload</div>
-</div>
-
-</div>
-
-<script>
-
-let xp=0;
-let lvl=1;
-
-function gainXP(){
-xp+=10;
-if(xp>=100){
-lvl++;
-xp=0;
-}
-document.getElementById("xp").innerText=xp;
-document.getElementById("lvl").innerText=lvl;
-document.getElementById("fill").style.width=xp+"%";
-localStorage.setItem("gym",JSON.stringify({xp,lvl}));
-}
-
-function show(n){
-let w=document.querySelectorAll(".week");
-let t=document.querySelectorAll(".tab");
-w.forEach(x=>x.classList.remove("active"));
-t.forEach(x=>x.classList.remove("active"));
-document.getElementById("w"+n).classList.add("active");
-t[n-1].classList.add("active");
-}
-
-window.onload=()=>{
-let data=JSON.parse(localStorage.getItem("gym"));
-if(data){
-xp=data.xp;
-lvl=data.lvl;
-document.getElementById("xp").innerText=xp;
-document.getElementById("lvl").innerText=lvl;
-document.getElementById("fill").style.width=xp+"%";
-}
-}
-
-</script>
-
-</body>
-</html><script>
-
-/* =========================
-   STREAK SYSTEM
-========================= */
-let streak = 0;
-let lastDay = null;
-
-function updateStreak(){
-let today = new Date().toDateString();
-
-if(lastDay !== today){
-streak++;
-lastDay = today;
-}
-
-localStorage.setItem("streak", JSON.stringify({streak,lastDay}));
-}
-
-/* =========================
-   ACHIEVEMENTS SYSTEM
-========================= */
-let achievements = [];
-
-function unlock(name){
-if(!achievements.includes(name)){
-achievements.push(name);
-alert("🏆 Achievement Unlocked: " + name);
-}
-localStorage.setItem("ach", JSON.stringify(achievements));
-}
-
-/* =========================
-   AI WEIGHT SUGGESTION SYSTEM
-   (BASED ON PR)
-========================= */
-function suggestWeight(pr, percent){
-return Math.round(pr * percent);
-}
-
-function getSuggestions(){
-let data = JSON.parse(localStorage.getItem("gymPR")) || {b:100,s:140,d:180};
-
-let benchTop = suggestWeight(data.b, 0.85);
-let squatTop = suggestWeight(data.s, 0.80);
-let deadTop = suggestWeight(data.d, 0.75);
-
-console.log("AI SUGGESTIONS:");
-console.log("Bench working set:", benchTop);
-console.log("Squat working set:", squatTop);
-console.log("Deadlift working set:", deadTop);
-
-return {benchTop,squatTop,deadTop};
-}
-
-/* =========================
-   PR TRACKER (UPGRADED)
-========================= */
-function savePR(){
-let b = prompt("Bench PR?");
-let s = prompt("Squat PR?");
-let d = prompt("Deadlift PR?");
-
-let obj = {b:+b,s:+s,d:+d};
-localStorage.setItem("gymPR", JSON.stringify(obj));
-
-unlock("First PR Recorded");
-}
-
-/* =========================
-   XP SYSTEM UPGRADE
-========================= */
-function gainXP(){
-xp += 15;
-if(xp >= 100){
-lvl++;
-xp = 0;
-unlock("Level Up");
-}
-
-document.getElementById("xp").innerText = xp;
-document.getElementById("lvl").innerText = lvl;
-document.getElementById("fill").style.width = xp + "%";
-
-updateStreak();
-
-localStorage.setItem("gym", JSON.stringify({xp,lvl}));
-}
-
-/* =========================
-   BOSS FIGHT MODE (WEEK 5)
-========================= */
-function bossFight(){
-let audio = new Audio();
-audio.src = "https://www.soundjay.com/button/beep-07.wav";
-audio.play();
-
-document.body.style.background = "radial-gradient(circle,#300000,#000)";
-
-setTimeout(()=>{
-document.body.style.background = "black";
-},1000);
-}
-
-/* =========================
-   SIMPLE GRAPH SYSTEM
-========================= */
-function drawGraph(){
-let canvas = document.createElement("canvas");
-canvas.width = 600;
-canvas.height = 200;
-document.body.appendChild(canvas);
-
-let ctx = canvas.getContext("2d");
-
-let data = JSON.parse(localStorage.getItem("gymPR")) || {b:100,s:140,d:180};
-
-let values = [data.b,data.s,data.d];
-
-ctx.strokeStyle = "red";
-ctx.beginPath();
-
-for(let i=0;i<values.length;i++){
-ctx.lineTo(i*200+50, 200 - values[i]/2);
-}
-
-ctx.stroke();
-}
-
-/* =========================
-   LOAD SYSTEM
-========================= */
-window.onload = () => {
-
-let g = JSON.parse(localStorage.getItem("gym"));
-if(g){
-xp = g.xp;
-lvl = g.lvl;
-document.getElementById("xp").innerText = xp;
-document.getElementById("lvl").innerText = lvl;
-document.getElementById("fill").style.width = xp + "%";
-}
-
-achievements = JSON.parse(localStorage.getItem("ach")) || [];
-drawGraph();
-
-console.log(getSuggestions());
-};
-
-</script><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FINAL FORM GYM RPG</title>
-
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:black;
-color:white;
-overflow-x:hidden;
-transition:0.5s;
-}
-
-/* ===== BACKGROUND EFFECT ===== */
-.glow{
-position:fixed;
-width:300px;
-height:300px;
-background:red;
-filter:blur(140px);
-opacity:0.15;
-animation:float 10s infinite alternate;
-}
-@keyframes float{
-from{transform:translate(0,0);}
-to{transform:translate(200px,300px);}
-}
-
-/* ===== HEADER ===== */
-header{
-text-align:center;
-padding:20px;
-font-size:32px;
-font-weight:900;
-color:red;
-}
-
-/* ===== XP BAR ===== */
-.xpWrap{
 position:sticky;
 top:0;
 background:#000;
@@ -448,16 +43,16 @@ background:red;
 transition:0.3s;
 }
 
-/* ===== TABS ===== */
 .tabs{
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 background:#111;
 position:sticky;
-top:60px;
+top:55px;
 z-index:9;
 }
+
 .tab{
 padding:10px;
 background:none;
@@ -465,18 +60,19 @@ border:none;
 color:white;
 cursor:pointer;
 }
+
 .tab.active{
 color:red;
 border-bottom:2px solid red;
 }
 
-/* ===== WEEK ===== */
 .week{
 display:none;
 max-width:900px;
 margin:auto;
 padding:10px;
 }
+
 .week.active{display:block;}
 
 .day{
@@ -491,31 +87,20 @@ border-left:4px solid red;
 padding:8px;
 margin:10px 0;
 font-style:italic;
-}
-
-/* ===== BUTTONS ===== */
-button{
-background:red;
-color:white;
-border:none;
-padding:5px;
-cursor:pointer;
-margin:5px;
+color:#ff8080;
 }
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
+<header>🔥 FINAL FORM GYM RPG</header>
 
-<div class="xpWrap">
+<div class="xpBox">
 LEVEL: <span id="lvl">1</span> |
 XP: <span id="xp">0</span>/100
 <div class="bar"><div class="fill" id="fill"></div></div>
 </div>
-
-<header>🔥 FINAL FORM GYM RPG</header>
 
 <div class="tabs">
 <button class="tab active" onclick="show(1)">W1</button>
@@ -528,99 +113,109 @@ XP: <span id="xp">0</span>/100
 
 <!-- ================= WEEK 1 ================= -->
 <div id="w1" class="week active">
+<div class="quote">“Discipline beats motivation.”</div>
 
-<div class="quote">Discipline beats motivation.</div>
+<div class="day"><b>DAY 1 – BENCH HEAVY</b><br>5x3 @ RPE 7<br>Incline DB 3–4x10–12<br>Cable Fly 3x12–15<br>Triceps Pushdown 3–4x12–15</div>
 
-<div class="day"><h3>DAY 1 – BENCH HEAVY</h3>
-Bench 5x3 @ RPE 7<br>
-Incline DB 3–4x10–12<br>
-Cable Fly 3x12–15<br>
-Triceps Pushdown 3–4x12–15</div>
+<div class="day"><b>DAY 2 – SQUAT</b><br>5x5 @ RPE 7<br>Hack Squat 3x10<br>Leg Press 3x12<br>Leg Extension 3x15</div>
 
-<div class="day"><h3>DAY 2 – SQUAT</h3>
-Squat 5x5 @ RPE 7<br>
-Hack Squat 3x10<br>
-Leg Press 3x12<br>
-Leg Extension 3x15</div>
+<div class="day"><b>DAY 3 – BACK + SHOULDERS</b><br>Lat Pulldown 4x10–12<br>Chest Row 3x10<br>Cable Row 3x12<br>Lateral Raise 3x15<br>Face Pull 3x15</div>
 
-<div class="day"><h3>DAY 3 – BACK</h3>
-Lat Pulldown 4x10–12<br>
-Chest Row 3x10<br>
-Cable Row 3x12<br>
-Rear Delt Fly 3x15<br>
-Face Pull 3x15</div>
+<div class="day"><b>DAY 4 – DEADLIFT</b><br>3x3 @ 70–72%<br>RDL 3x8<br>Ham Curl 3–4x12<br>Glute Bridge 3x10</div>
 
-<div class="day"><h3>DAY 4 – DEADLIFT</h3>
-Deadlift 3x3 @ 70–72%<br>
-RDL 3x8<br>
-Ham Curl 3–4x12<br>
-Glute Bridge 3x10</div>
-
-<div class="day"><h3>DAY 5 – ARMS</h3>
-Bench 4x6<br>
-Incline DB 3x10<br>
-Dips 3x10<br>
-Curls 3x12–15</div>
-
+<div class="day"><b>DAY 5 – ARMS</b><br>Bench 4x6 @ RPE 7<br>Incline DB 3x10<br>Dips 3x10<br>Curls 3x12–15</div>
 </div>
 
-<!-- (Weeks 2–6 are full structured versions but compacted visually for performance while still COMPLETE in system logic) -->
+<!-- WEEK 2 -->
+<div id="w2" class="week">
+<div class="quote">“Progress is earned.”</div>
+<div class="day">Same structure + +2.5–5 lb increases</div>
+</div>
 
-<div id="w2" class="week"><div class="day">Week 2 – Progressive overload (+2.5–5 lbs compounds)</div></div>
-<div id="w3" class="week"><div class="day">Week 3 – Intensity (Singles @ RPE 8)</div></div>
-<div id="w4" class="week"><div class="day">Week 4 – Overload (Heavy doubles)</div></div>
-<div id="w5" class="week"><div class="day">Week 5 – PEAK WEEK (PR ATTEMPTS / BOSS FIGHT)</div></div>
-<div id="w6" class="week"><div class="day">Week 6 – Reset (50–60% deload)</div></div>
+<!-- WEEK 3 -->
+<div id="w3" class="week">
+<div class="quote">“Intensification phase.”</div>
+<div class="day">Bench 1x1 + 3x3 @ 80%</div>
+<div class="day">Squat 1x1 + 3x3 @ 80%</div>
+<div class="day">Deadlift 3x2 @ 75–80%</div>
+</div>
+
+<!-- WEEK 4 -->
+<div id="w4" class="week">
+<div class="quote">“Overload.”</div>
+<div class="day">Heavy doubles + controlled volume</div>
+</div>
+
+<!-- WEEK 5 -->
+<div id="w5" class="week">
+<div class="quote">“BOSS FIGHT WEEK.”</div>
+<div class="day">Bench 90–97% single</div>
+<div class="day">Squat 88–95% single</div>
+<div class="day">Speed Bench 6x2 @ 65–70%</div>
+</div>
+
+<!-- WEEK 6 -->
+<div id="w6" class="week">
+<div class="quote">“RESET & GROW.”</div>
+<div class="day">50–60% volume deload</div>
+</div>
 
 <script>
 
-/* ===== CORE SYSTEM ===== */
-let xp=0;
-let lvl=1;
+/* ================= CORE SYSTEM ================= */
+let xp = 0;
+let lvl = 1;
+
+function update(){
+document.getElementById("xp").innerText = xp;
+document.getElementById("lvl").innerText = lvl;
+document.getElementById("fill").style.width = xp + "%";
+}
 
 function gainXP(){
-xp+=10;
-if(xp>=100){
+xp += 10;
+
+if(xp >= 100){
+xp = 0;
 lvl++;
-xp=0;
+alert("LEVEL UP!");
 }
+
 save();
 update();
 }
 
-function update(){
-document.getElementById("xp").innerText=xp;
-document.getElementById("lvl").innerText=lvl;
-document.getElementById("fill").style.width=xp+"%";
-}
-
+/* ================= TABS ================= */
 function show(n){
-let w=document.querySelectorAll(".week");
-let t=document.querySelectorAll(".tab");
-w.forEach(x=>x.classList.remove("active"));
-t.forEach(x=>x.classList.remove("active"));
+let weeks = document.querySelectorAll(".week");
+let tabs = document.querySelectorAll(".tab");
+
+weeks.forEach(w => w.classList.remove("active"));
+tabs.forEach(t => t.classList.remove("active"));
+
 document.getElementById("w"+n).classList.add("active");
-t[n-1].classList.add("active");
+tabs[n-1].classList.add("active");
 }
 
-/* ===== SAVE SYSTEM ===== */
+/* ================= SAVE ================= */
 function save(){
-localStorage.setItem("gymFinal",JSON.stringify({xp,lvl}));
+localStorage.setItem("gymRPG", JSON.stringify({xp,lvl}));
 }
 
-window.onload=()=>{
-let data=JSON.parse(localStorage.getItem("gymFinal"));
+window.onload = () => {
+let data = JSON.parse(localStorage.getItem("gymRPG"));
+
 if(data){
-xp=data.xp;
-lvl=data.lvl;
+xp = data.xp;
+lvl = data.lvl;
 update();
 }
-}
+};
 
-/* ===== BOSS EFFECT ===== */
+/* ================= BOSS KEY ================= */
 document.addEventListener("keydown",(e)=>{
 if(e.key==="b"){
-document.body.style.background="darkred";
+document.body.style.background = "darkred";
 setTimeout(()=>document.body.style.background="black",500);
 }
 });
