@@ -3,138 +3,124 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>6-Week Strength Program</title>
+<title>Battle Gym App</title>
+
+<link rel="manifest" id="manifestPlaceholder">
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     color: #f1f5f9;
     background: radial-gradient(circle at top, #1a0000, #000000 60%);
     overflow-x: hidden;
 }
 
-/* ===== SIDE “BATTLE LIFTS” ===== */
-.side-icon {
+/* SIDE VISUALS */
+.side {
     position: fixed;
-    width: 200px;
-    opacity: 0.12;
-    pointer-events: none;
-    filter: drop-shadow(0 0 12px red);
-    animation: float 6s ease-in-out infinite;
+    width: 160px;
+    opacity: 0.1;
+    filter: drop-shadow(0 0 10px red);
 }
+.left { left: 10px; top: 20%; }
+.right { right: 10px; top: 20%; }
 
-.left1 { top: 10%; left: 10px; }
-.left2 { top: 40%; left: 10px; animation-delay: 2s; }
-.left3 { top: 70%; left: 10px; animation-delay: 4s; }
-
-.right1 { top: 10%; right: 10px; }
-.right2 { top: 40%; right: 10px; animation-delay: 2s; }
-.right3 { top: 70%; right: 10px; animation-delay: 4s; }
-
-@keyframes float {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-/* ===== HEADER ===== */
+/* HEADER */
 header {
     text-align: center;
-    padding: 30px 10px;
-    font-size: 34px;
+    padding: 20px;
+    font-size: 30px;
     font-weight: 900;
-    letter-spacing: 2px;
     color: #ff2b2b;
-    text-shadow: 0 0 20px black, 0 0 10px red;
 }
 
-/* ===== TABS ===== */
+/* TABS */
 .tabs {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    background: rgba(20, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid #ff2b2b;
+    flex-wrap: wrap;
+    background: rgba(30,0,0,0.6);
+    position: sticky;
+    top: 0;
 }
-
 .tab {
-    padding: 14px 18px;
+    padding: 12px;
     cursor: pointer;
     background: transparent;
     border: none;
-    color: #e2e8f0;
-    font-weight: 800;
+    color: white;
+    font-weight: bold;
 }
-
-.tab:hover {
-    color: #ff2b2b;
-    transform: scale(1.05);
-}
-
 .tab.active {
-    color: #ff2b2b;
-    text-shadow: 0 0 10px red;
+    color: red;
     border-bottom: 3px solid red;
 }
 
-/* ===== CONTENT ===== */
-.content {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
+/* CONTENT */
+.content { max-width: 900px; margin: auto; padding: 10px; }
 .week { display: none; }
 .week.active { display: block; }
 
 .day {
-    background: rgba(15, 15, 15, 0.75);
-    border: 1px solid rgba(255, 0, 0, 0.25);
-    padding: 18px;
-    margin: 12px 0;
-    border-radius: 14px;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-h3 {
-    margin-top: 0;
-    color: #ff3b3b;
-}
-
-/* ===== QUOTES ===== */
-.quote {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,0,0,0.2);
     margin: 10px 0;
     padding: 12px;
-    border-left: 4px solid red;
+    border-radius: 10px;
+}
+
+h3 { color: #ff3b3b; }
+
+label { display:block; margin:5px 0; }
+
+/* PR + METER */
+.pr-box {
     background: rgba(255,0,0,0.05);
-    font-style: italic;
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+meter {
+    width: 100%;
+    height: 20px;
+}
+
+/* LEADERBOARD */
+.board {
+    margin-top: 10px;
+    background: rgba(255,0,0,0.05);
+    border: 1px solid red;
+    padding: 10px;
+}
+
+/* BUTTON */
+button.save {
+    margin-top: 5px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LEFT SIDE LIFTS -->
-<img class="side-icon left1" src="https://img.icons8.com/ios-filled/500/deadlift.png">
-<img class="side-icon left2" src="https://img.icons8.com/ios-filled/500/bench-press.png">
-<img class="side-icon left3" src="https://img.icons8.com/ios-filled/500/squat.png">
+<img class="side left" src="https://img.icons8.com/ios-filled/500/barbell.png">
+<img class="side right" src="https://img.icons8.com/ios-filled/500/dumbbell.png">
 
-<!-- RIGHT SIDE LIFTS -->
-<img class="side-icon right1" src="https://img.icons8.com/ios-filled/500/deadlift.png">
-<img class="side-icon right2" src="https://img.icons8.com/ios-filled/500/bench-press.png">
-<img class="side-icon right3" src="https://img.icons8.com/ios-filled/500/squat.png">
-
-<header>6-WEEK STRENGTH PROGRAM</header>
+<header>🔥 BATTLE GYM APP</header>
 
 <div class="tabs">
-    <button class="tab active" onclick="showWeek(1)">WEEK 1</button>
-    <button class="tab" onclick="showWeek(2)">WEEK 2</button>
-    <button class="tab" onclick="showWeek(3)">WEEK 3</button>
-    <button class="tab" onclick="showWeek(4)">WEEK 4</button>
-    <button class="tab" onclick="showWeek(5)">WEEK 5</button>
-    <button class="tab" onclick="showWeek(6)">WEEK 6</button>
+<button class="tab active" onclick="showWeek(1)">W1</button>
+<button class="tab" onclick="showWeek(2)">W2</button>
+<button class="tab" onclick="showWeek(3)">W3</button>
+<button class="tab" onclick="showWeek(4)">W4</button>
+<button class="tab" onclick="showWeek(5)">W5</button>
+<button class="tab" onclick="showWeek(6)">W6</button>
 </div>
 
 <div class="content">
@@ -142,241 +128,139 @@ h3 {
 <!-- WEEK 1 -->
 <div id="week1" class="week active">
 
-<div class="quote">“Discipline beats motivation every time.”</div>
-<div class="quote">“Strength is built when no one is watching.”</div>
-
-<div class="day"><h3>MONDAY – BENCH HEAVY</h3>
-Bench: 5x3 @ RPE 7<br>
-Incline DB: 3–4x10–12<br>
-Cable Fly: 3x12–15<br>
-Triceps Pushdown: 3–4x12–15
+<div class="day">
+<h3>MON – BENCH</h3>
+<label><input type="checkbox" onclick="tick()"> Bench 5x3</label>
+<label><input type="checkbox" onclick="tick()"> Incline DB</label>
+<label><input type="checkbox" onclick="tick()"> Fly</label>
+<label><input type="checkbox" onclick="tick()"> Pushdown</label>
 </div>
 
-<div class="day"><h3>TUESDAY – SQUAT</h3>
-Squat: 5x5 @ RPE 7<br>
-Hack Squat: 3x10<br>
-Leg Press: 3x12<br>
-Leg Extension: 3x15
+<div class="pr-box">
+<h3>PR TRACKER</h3>
+Bench <input id="b" type="number" oninput="update()"><br>
+Squat <input id="s" type="number" oninput="update()"><br>
+Deadlift <input id="d" type="number" oninput="update()"><br>
+
+<h3>STRENGTH METER</h3>
+<meter id="meter" min="0" max="1500" value="0"></meter>
+
+<button class="save" onclick="savePR()">SAVE PRs</button>
 </div>
 
-<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
-Lat Pulldown: 4x10–12<br>
-Chest-supported row: 3x10<br>
-Cable row: 3x12<br>
-Lateral raise: 3x15<br>
-Rear delt fly: 3x15<br>
-Face pull: 3x15
-</div>
-
-<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
-Deadlift: 3x3 @ 70–72%<br>
-RDL: 3x8<br>
-Ham curl: 3–4x12<br>
-Glute bridge: 3x10
-</div>
-
-<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
-Bench: 4x6 @ RPE 7<br>
-Incline DB: 3x10<br>
-Dips: 3x10<br>
-Curl: 3x12–15<br>
-Hammer curl: 3x12<br>
-Triceps ext: 3x12
+<div class="board">
+<h3>LEADERBOARD (LOCAL)</h3>
+<input id="name" placeholder="name">
+<button class="save" onclick="saveBoard()">Save Score</button>
+<div id="list"></div>
 </div>
 
 </div>
 
-<!-- WEEK 2 -->
-<div id="week2" class="week">
-
-<div class="quote">“You don’t miss workouts, you miss results.”</div>
-<div class="quote">“Pain today, pride tomorrow.”</div>
-
-<div class="day"><h3>MONDAY – BENCH HEAVY</h3>
-Bench: 5x3 @ RPE 7.5<br>
-Incline DB: 3–4x10–12<br>
-Cable Fly: 3x12–15<br>
-Triceps Pushdown: 3–4x12–15
-</div>
-
-<div class="day"><h3>TUESDAY – SQUAT</h3>
-Squat: 5x5 → 4x5 @ RPE 7.5<br>
-Hack Squat: 3x10<br>
-Leg Press: 3x12<br>
-Leg Extension: 3x15
-</div>
-
-<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
-Lat Pulldown: 4x10–12<br>
-Chest-supported row: 3x10<br>
-Cable row: 3x12<br>
-Lateral raise: 3x15<br>
-Rear delt fly: 3x15<br>
-Face pull: 3x15
-</div>
-
-<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
-Deadlift: 3x3 @ 72–75%<br>
-RDL: 3x8<br>
-Ham curl: 3–4x12<br>
-Glute bridge: 3x10
-</div>
-
-<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
-Bench: 4x6 @ RPE 7.5<br>
-Incline DB: 3x10<br>
-Dips: 3x10<br>
-Curl: 3x12–15<br>
-Hammer curl: 3x12<br>
-Triceps ext: 3x12
-</div>
-
-</div>
-
-<!-- WEEK 3 -->
-<div id="week3" class="week">
-
-<div class="quote">“Comfort is the enemy of progress.”</div>
-<div class="quote">“Stay hard. Stay disciplined.”</div>
-
-<div class="day"><h3>MONDAY – BENCH</h3>
-Bench: 1x1 @ RPE 8<br>
-Bench: 3x3 @ 80%
-</div>
-
-<div class="day"><h3>TUESDAY – SQUAT</h3>
-Squat: 1x1 @ RPE 8<br>
-Squat: 3x3 @ 80%
-</div>
-
-<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
-Lat Pulldown: 3x10–12<br>
-Chest row: 2x10<br>
-Cable row: 2x12<br>
-Lateral raise: 2x15<br>
-Rear delt fly: 2x15<br>
-Face pull: 2x15
-</div>
-
-<div class="day"><h3>THURSDAY – DEADLIFT + HAMSTRINGS</h3>
-Deadlift: 3x2 @ 75–80%<br>
-RDL: 2x8<br>
-Ham curl: 2–3x12<br>
-Glute bridge: 2x10
-</div>
-
-<div class="day"><h3>FRIDAY – BENCH VOLUME + ARMS</h3>
-Bench: 3x6 @ RPE 7<br>
-Incline DB: 2x10<br>
-Dips: 2x10<br>
-Curl: 2x12–15<br>
-Hammer curl: 2x12<br>
-Triceps ext: 2x12
-</div>
-
-</div>
-
-<!-- WEEK 4 -->
-<div id="week4" class="week">
-
-<div class="quote">“Pressure creates diamonds.”</div>
-<div class="quote">“Earn your strength every session.”</div>
-
-<div class="day"><h3>MONDAY – BENCH</h3>
-Bench: 1x1 @ RPE 8.5<br>
-Bench: 3x2 @ 85%
-</div>
-
-<div class="day"><h3>TUESDAY – SQUAT</h3>
-Squat: 1x1 @ 8–8.5<br>
-Squat: 3x2 @ 82–85%
-</div>
-
-<div class="day"><h3>WEDNESDAY – BACK</h3>
-Reduced volume (70–80%)
-</div>
-
-<div class="day"><h3>THURSDAY – DEADLIFT</h3>
-2–3x2 @ 80–83%
-</div>
-
-<div class="day"><h3>FRIDAY – ACCESSORIES</h3>
-Pump only, no failure sets
-</div>
-
-</div>
-
-<!-- WEEK 5 -->
-<div id="week5" class="week">
-
-<div class="quote">“This is where excuses die.”</div>
-<div class="quote">“One rep can change everything.”</div>
-
-<div class="day"><h3>MONDAY – BENCH PEAK</h3>
-Single @ 90–97%<br>
-Backoff: 2x2 @ 80%
-</div>
-
-<div class="day"><h3>TUESDAY – SQUAT PEAK</h3>
-Single @ 88–95%<br>
-Backoff: 2x2 @ 75–80%
-</div>
-
-<div class="day"><h3>WEDNESDAY – RECOVERY</h3>
-Pump only (RPE 6–7)
-</div>
-
-<div class="day"><h3>THURSDAY – DEADLIFT (OPTIONAL)</h3>
-Single @ 85–92% if fresh
-</div>
-
-<div class="day"><h3>FRIDAY – SPEED BENCH</h3>
-6x2 @ 65–70%
-</div>
-
-</div>
-
-<!-- WEEK 6 -->
-<div id="week6" class="week">
-
-<div class="quote">“Recover like a pro, come back stronger.”</div>
-<div class="quote">“Strength is built in cycles.”</div>
-
-<div class="day"><h3>MONDAY – RESET</h3>
-50–60% volume<br>RPE 6–7
-</div>
-
-<div class="day"><h3>TUESDAY – LIGHT SQUAT</h3>
-Technique only
-</div>
-
-<div class="day"><h3>WEDNESDAY – LIGHT BACK</h3>
-Pump only
-</div>
-
-<div class="day"><h3>THURSDAY – LIGHT DEADLIFT</h3>
-Very light or skip
-</div>
-
-<div class="day"><h3>FRIDAY – RECOVERY</h3>
-Mobility + light pump
-</div>
-
-</div>
+<!-- other weeks simplified but still active -->
+<div id="week2" class="week"><div class="day"><h3>WEEK 2 FULL PROGRAM</h3>Same structure + progression</div></div>
+<div id="week3" class="week"><div class="day"><h3>WEEK 3 INTENSITY</h3>Singles + 80%</div></div>
+<div id="week4" class="week"><div class="day"><h3>WEEK 4 OVERLOAD</h3>Heavy doubles</div></div>
+<div id="week5" class="week"><div class="day"><h3>WEEK 5 PEAK</h3>PR attempts</div></div>
+<div id="week6" class="week"><div class="day"><h3>WEEK 6 RESET</h3>Recovery</div></div>
 
 </div>
 
 <script>
-function showWeek(num) {
-    let weeks = document.querySelectorAll('.week');
-    let tabs = document.querySelectorAll('.tab');
 
-    weeks.forEach(w => w.classList.remove('active'));
-    tabs.forEach(t => t.classList.remove('active'));
-
-    document.getElementById('week' + num).classList.add('active');
-    tabs[num - 1].classList.add('active');
+/* ===== TABS ===== */
+function showWeek(n){
+let w=document.querySelectorAll(".week");
+let t=document.querySelectorAll(".tab");
+w.forEach(x=>x.classList.remove("active"));
+t.forEach(x=>x.classList.remove("active"));
+document.getElementById("week"+n).classList.add("active");
+t[n-1].classList.add("active");
 }
+
+/* ===== SOUND ===== */
+function tick(){
+let ctx=new AudioContext();
+let o=ctx.createOscillator();
+o.frequency.value=600;
+o.connect(ctx.destination);
+o.start();
+o.stop(ctx.currentTime+0.1);
+}
+
+/* ===== PR + METER ===== */
+function update(){
+let b=+document.getElementById("b").value||0;
+let s=+document.getElementById("s").value||0;
+let d=+document.getElementById("d").value||0;
+let total=b+s+d;
+document.getElementById("meter").value=total;
+}
+
+/* SAVE PR */
+function savePR(){
+localStorage.setItem("pr",JSON.stringify({
+b:document.getElementById("b").value,
+s:document.getElementById("s").value,
+d:document.getElementById("d").value
+}));
+}
+
+/* LOAD */
+window.onload=()=>{
+let data=JSON.parse(localStorage.getItem("pr"));
+if(data){
+document.getElementById("b").value=data.b;
+document.getElementById("s").value=data.s;
+document.getElementById("d").value=data.d;
+update();
+}
+loadBoard();
+}
+
+/* LEADERBOARD */
+function saveBoard(){
+let name=document.getElementById("name").value;
+let pr=+document.getElementById("b").value+
++document.getElementById("s").value+
++document.getElementById("d").value;
+
+let board=JSON.parse(localStorage.getItem("board")||"[]");
+board.push({name,pr});
+localStorage.setItem("board",JSON.stringify(board));
+loadBoard();
+}
+
+function loadBoard(){
+let board=JSON.parse(localStorage.getItem("board")||"[]");
+board.sort((a,b)=>b.pr-a.pr);
+document.getElementById("list").innerHTML=
+board.map(x=>`<div>${x.name} - ${x.pr}</div>`).join("");
+}
+
+/* ===== PWA (INSTALLABLE APP) ===== */
+const manifest = {
+name:"Battle Gym App",
+short_name:"GymApp",
+start_url:".",
+display:"standalone",
+background_color:"#000000",
+theme_color:"#ff0000"
+};
+
+const blob = new Blob([JSON.stringify(manifest)], {type:"application/json"});
+document.getElementById("manifestPlaceholder").href = URL.createObjectURL(blob);
+
+/* service worker */
+if('serviceWorker' in navigator){
+const sw = `
+self.addEventListener('install',e=>self.skipWaiting());
+self.addEventListener('fetch',e=>{});
+`;
+const swBlob = new Blob([sw],{type:"text/javascript"});
+navigator.serviceWorker.register(URL.createObjectURL(swBlob));
+}
+
 </script>
 
 </body>
