@@ -14,32 +14,30 @@ body {
     overflow-x: hidden;
 }
 
-/* side gym visuals */
-body::before,
-body::after {
-    content: "";
+/* ===== SIDE “BATTLE LIFTS” ===== */
+.side-icon {
     position: fixed;
-    top: 0;
-    width: 180px;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.15;
+    width: 200px;
+    opacity: 0.12;
     pointer-events: none;
-    filter: drop-shadow(0 0 10px red);
+    filter: drop-shadow(0 0 12px red);
+    animation: float 6s ease-in-out infinite;
 }
 
-body::before {
-    left: 0;
-    background-image: url("https://img.icons8.com/ios-filled/500/barbell.png");
+.left1 { top: 10%; left: 10px; }
+.left2 { top: 40%; left: 10px; animation-delay: 2s; }
+.left3 { top: 70%; left: 10px; animation-delay: 4s; }
+
+.right1 { top: 10%; right: 10px; }
+.right2 { top: 40%; right: 10px; animation-delay: 2s; }
+.right3 { top: 70%; right: 10px; animation-delay: 4s; }
+
+@keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
-body::after {
-    right: 0;
-    background-image: url("https://img.icons8.com/ios-filled/500/dumbbell.png");
-}
-
+/* ===== HEADER ===== */
 header {
     text-align: center;
     padding: 30px 10px;
@@ -50,6 +48,7 @@ header {
     text-shadow: 0 0 20px black, 0 0 10px red;
 }
 
+/* ===== TABS ===== */
 .tabs {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +65,6 @@ header {
     border: none;
     color: #e2e8f0;
     font-weight: 800;
-    font-size: 15px;
 }
 
 .tab:hover {
@@ -80,46 +78,53 @@ header {
     border-bottom: 3px solid red;
 }
 
+/* ===== CONTENT ===== */
 .content {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
 }
 
-.week {
-    display: none;
-}
-
-.week.active {
-    display: block;
-}
+.week { display: none; }
+.week.active { display: block; }
 
 .day {
     background: rgba(15, 15, 15, 0.75);
     border: 1px solid rgba(255, 0, 0, 0.25);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
     padding: 18px;
     margin: 12px 0;
     border-radius: 14px;
-    backdrop-filter: blur(6px);
     font-size: 16px;
     line-height: 1.6;
 }
 
 h3 {
     margin-top: 0;
-    font-size: 20px;
     color: #ff3b3b;
 }
 
-@media (max-width: 700px) {
-    body::before, body::after { display: none; }
-    header { font-size: 24px; }
+/* ===== QUOTES ===== */
+.quote {
+    margin: 10px 0;
+    padding: 12px;
+    border-left: 4px solid red;
+    background: rgba(255,0,0,0.05);
+    font-style: italic;
 }
 </style>
 </head>
 
 <body>
+
+<!-- LEFT SIDE LIFTS -->
+<img class="side-icon left1" src="https://img.icons8.com/ios-filled/500/deadlift.png">
+<img class="side-icon left2" src="https://img.icons8.com/ios-filled/500/bench-press.png">
+<img class="side-icon left3" src="https://img.icons8.com/ios-filled/500/squat.png">
+
+<!-- RIGHT SIDE LIFTS -->
+<img class="side-icon right1" src="https://img.icons8.com/ios-filled/500/deadlift.png">
+<img class="side-icon right2" src="https://img.icons8.com/ios-filled/500/bench-press.png">
+<img class="side-icon right3" src="https://img.icons8.com/ios-filled/500/squat.png">
 
 <header>6-WEEK STRENGTH PROGRAM</header>
 
@@ -136,6 +141,9 @@ h3 {
 
 <!-- WEEK 1 -->
 <div id="week1" class="week active">
+
+<div class="quote">“Discipline beats motivation every time.”</div>
+<div class="quote">“Strength is built when no one is watching.”</div>
 
 <div class="day"><h3>MONDAY – BENCH HEAVY</h3>
 Bench: 5x3 @ RPE 7<br>
@@ -181,6 +189,9 @@ Triceps ext: 3x12
 <!-- WEEK 2 -->
 <div id="week2" class="week">
 
+<div class="quote">“You don’t miss workouts, you miss results.”</div>
+<div class="quote">“Pain today, pride tomorrow.”</div>
+
 <div class="day"><h3>MONDAY – BENCH HEAVY</h3>
 Bench: 5x3 @ RPE 7.5<br>
 Incline DB: 3–4x10–12<br>
@@ -225,6 +236,9 @@ Triceps ext: 3x12
 <!-- WEEK 3 -->
 <div id="week3" class="week">
 
+<div class="quote">“Comfort is the enemy of progress.”</div>
+<div class="quote">“Stay hard. Stay disciplined.”</div>
+
 <div class="day"><h3>MONDAY – BENCH</h3>
 Bench: 1x1 @ RPE 8<br>
 Bench: 3x3 @ 80%
@@ -265,6 +279,9 @@ Triceps ext: 2x12
 <!-- WEEK 4 -->
 <div id="week4" class="week">
 
+<div class="quote">“Pressure creates diamonds.”</div>
+<div class="quote">“Earn your strength every session.”</div>
+
 <div class="day"><h3>MONDAY – BENCH</h3>
 Bench: 1x1 @ RPE 8.5<br>
 Bench: 3x2 @ 85%
@@ -275,13 +292,12 @@ Squat: 1x1 @ 8–8.5<br>
 Squat: 3x2 @ 82–85%
 </div>
 
-<div class="day"><h3>WEDNESDAY – BACK + SHOULDERS</h3>
-Reduced volume (70–80%)<br>
-All movements same structure
+<div class="day"><h3>WEDNESDAY – BACK</h3>
+Reduced volume (70–80%)
 </div>
 
 <div class="day"><h3>THURSDAY – DEADLIFT</h3>
-Deadlift: 2–3x2 @ 80–83%
+2–3x2 @ 80–83%
 </div>
 
 <div class="day"><h3>FRIDAY – ACCESSORIES</h3>
@@ -292,6 +308,9 @@ Pump only, no failure sets
 
 <!-- WEEK 5 -->
 <div id="week5" class="week">
+
+<div class="quote">“This is where excuses die.”</div>
+<div class="quote">“One rep can change everything.”</div>
 
 <div class="day"><h3>MONDAY – BENCH PEAK</h3>
 Single @ 90–97%<br>
@@ -304,7 +323,7 @@ Backoff: 2x2 @ 75–80%
 </div>
 
 <div class="day"><h3>WEDNESDAY – RECOVERY</h3>
-Pump work only (RPE 6–7)
+Pump only (RPE 6–7)
 </div>
 
 <div class="day"><h3>THURSDAY – DEADLIFT (OPTIONAL)</h3>
@@ -319,6 +338,9 @@ Single @ 85–92% if fresh
 
 <!-- WEEK 6 -->
 <div id="week6" class="week">
+
+<div class="quote">“Recover like a pro, come back stronger.”</div>
+<div class="quote">“Strength is built in cycles.”</div>
 
 <div class="day"><h3>MONDAY – RESET</h3>
 50–60% volume<br>RPE 6–7
